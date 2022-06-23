@@ -1,1 +1,1 @@
-print("This is a feature added")
+print("This is a feature")
