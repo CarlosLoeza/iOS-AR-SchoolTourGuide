@@ -27,6 +27,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Select Starting Point">
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="pickerRoll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vXK-s9-ESf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDt-eT-p3P">
                                         <rect key="frame" x="242.5" y="0.0" width="69.5" height="31"/>
