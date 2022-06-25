@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // create a picker roller view so user can select a starting point from list
     @IBOutlet weak var startingPointPickerView: UIButton!
+    @IBOutlet weak var destinationPickerView: UIButton!
     // user can use their current location
     @IBOutlet weak var userLocation: UIButton!
     // list of starting and destination points
@@ -60,6 +61,32 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func destinationPickerRoll(_ sender: Any) {
+        let vc = UIViewController()
+        vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
+        vc.view.addSubview(pickerView)
+        pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
+        pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
+        
+        let alert = UIAlertController(title: "Select Destination", message: "", preferredStyle: .actionSheet)
+        alert.setValue(vc, forKey: "contentViewController")
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(UIAlertAction) in }))
+        
+        alert.addAction(UIAlertAction(title: "Select", style: .default, handler: {(UIAlertAction) in
+            self.selectedRow = pickerView.selectedRow(inComponent: 0)
+            let selected = Array(self.locations)[self.selectedRow]
+            let destination = selected.key
+            self.destinationPickerView.setTitle(destination, for: .normal)
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     
 
     
