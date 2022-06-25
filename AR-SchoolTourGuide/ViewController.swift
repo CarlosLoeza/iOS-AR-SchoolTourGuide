@@ -21,12 +21,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     // user can use their current location
     @IBOutlet weak var userLocation: UIButton!
     // list of starting and destination points
-    var locations = [
-        "J. Paul Leonard Library": String(),
+    var locations: KeyValuePairs = [
+        "Business": String(),
         "Cesar Chavez Student Center": String(),
         "Creative Arts": String(),
         "Humanities": String(),
-        "Business": String(),
+        "J. Paul Leonard Library": String()
     ]
     
     override func viewDidLoad() {
