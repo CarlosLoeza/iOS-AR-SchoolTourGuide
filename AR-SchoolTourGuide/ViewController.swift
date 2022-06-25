@@ -11,7 +11,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // screen width and height for picker roller
     let screenWidth = UIScreen.main.bounds.width-10
-    let screenHeight = UIScreen.main.bounds.height / 3
+    let screenHeight = UIScreen.main.bounds.height / 5
     // selectedRow
     var selectedRow = 0
     
@@ -38,6 +38,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
         let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
         pickerView.dataSource = self
+        pickerView.delegate = self
         pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
         vc.view.addSubview(pickerView)
         pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
@@ -79,7 +80,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 30
+        return 60
     }
 
 
