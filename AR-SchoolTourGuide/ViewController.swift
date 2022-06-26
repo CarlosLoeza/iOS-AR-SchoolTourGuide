@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import GameplayKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -15,23 +14,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let screenHeight = UIScreen.main.bounds.height / 5
     // selectedRow
     var selectedRow = 0
-    // number of locations
-    var size = 11
-    // graph
-    var graph: [[Int]] = [ [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1 ], // 0
-                        [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1 ], // 1
-                        [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ], // 2
-                        [ 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1 ], // 3
-                        [ 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0 ], // 4
-                        [ 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0 ], // 5
-                        [ 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0 ], // 6
-                        [ 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0 ], // 7
-                        [ 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0 ], // 8
-                        [ 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1 ], // 9
-                        [ 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0 ], // 10
-
-                        ]
-    
     
     // create a picker roller view so user can select a starting point from list
     @IBOutlet weak var startingPointPickerView: UIButton!
@@ -50,10 +32,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        dijkstra(graph: graph, src: 0, size: size)
     }
-    
-
 
     @IBAction func pickerRoll(_ sender: Any) {
         let vc = UIViewController()
