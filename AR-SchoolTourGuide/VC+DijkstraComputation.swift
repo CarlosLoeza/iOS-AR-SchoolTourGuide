@@ -7,12 +7,12 @@
 
 import GameplayKit
 
+// helps us convert location vertex number to name
 extension Dictionary where Value: Equatable {
     func allKeys(forValue val: Value) -> [Key] {
         return self.filter { $1 == val }.map { $0.0 }
     }
 }
-
 
 
 extension ViewController{
@@ -48,10 +48,13 @@ extension ViewController{
     // print entire solution showing intial vertex, distance traveled, and path taken from source vertex
     func printSolution(dist: [Int], parent:[Int], size: Int, src:Int, dest: Int){
         print("Vertex       Distance        Path")
-//        var test1 = locationVertex.allKeys(forValue: src)
-//        print(test1)
-//        print("hello")
+        // location names instead of vertex number
+        var srcLocationName = locationVertex.allKeys(forValue: src)[0]
+        var destLocationName = locationVertex.allKeys(forValue: dest)[0]
         
+        print("hello")
+        
+        //print("\(srcLocationName) -> \(destLocationName)         \(dist[dest])              \(srcLocationName) ", terminator: " ")
         print("\(src) -> \(dest)         \(dist[dest])              \(src) ", terminator: " ")
         printPath(parent: parent, j: dest)
         print()
@@ -64,6 +67,8 @@ extension ViewController{
     }
     
 
+    // Perform dijkstra to find the shortest path from starting location
+    // to destination.
     func dijkstra(graph: [[Int]], src: Int, dest: Int, size: Int){
         // create our arrays
         // distance: distance traveled from source to destination

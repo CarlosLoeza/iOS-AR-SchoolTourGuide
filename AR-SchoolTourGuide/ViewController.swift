@@ -35,12 +35,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                            [ 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0 ], // vertex 10
                         ]
     
-    
-    // create a picker roller view so user can select a starting point from list
-    @IBOutlet weak var startingPointPickerView: UIButton!
-    @IBOutlet weak var destinationPickerView: UIButton!
-    // user can use their current location
-    @IBOutlet weak var userLocation: UIButton!
     // list of starting and destination points
     var locations: KeyValuePairs = [
         "Admissions": String(),
@@ -52,7 +46,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         "Humanities": String(),
         "J. Paul Leonard Library": String()
     ]
-    
+    // locationVertex is a dictionary which helps translate location name to vertex number.
+    // Used for dijkstra algorithm to find shortest path.
     var locationVertex : [String: Int] = [
                             "Admissions": 2,
                             "Burk Hall": 5,
@@ -64,13 +59,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                             "J. Paul Leonard Library": 0
                          ]
     
+    // create a picker roller view so user can select a starting point from list
+    @IBOutlet weak var startingPointPickerView: UIButton!
+    @IBOutlet weak var destinationPickerView: UIButton!
+    // user can use their current location
+    @IBOutlet weak var userLocation: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //dijkstra(graph: graph, src: 8, size: size)
     }
     
-    // findClassButton will get the starting and destination point in order to compute shortest path to class
+    // findClassButton will get the starting and destination point in order to compute shortest path
     @IBAction func findClassButton(_ sender: Any) {
         // start and destination points in string form
         let start = startingPointPickerView.titleLabel?.text
@@ -86,10 +85,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
-
+    // Picker roller which allows user to select a starting location
+    // and update text
     @IBAction func startingPointPickerRoller(_ sender: Any) {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
+        // create picker view by calling createPickerView()
         let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
         pickerView.dataSource = self
         pickerView.delegate = self
@@ -108,12 +109,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let selected = Array(self.locations)[self.selectedRow]
             let starting = selected.key
             self.startingPointPickerView.setTitle(starting, for: .normal)
-            
         }))
-        
         self.present(alert, animated: true, completion: nil)
     }
     
+    // Picker roller which allows user to select a destination location
+    // and update text.
     @IBAction func destinationPickerRoll(_ sender: Any) {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
@@ -135,9 +136,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let selected = Array(self.locations)[self.selectedRow]
             let destination = selected.key
             self.destinationPickerView.setTitle(destination, for: .normal)
-            
         }))
-        
         self.present(alert, animated: true, completion: nil)
     }
     
