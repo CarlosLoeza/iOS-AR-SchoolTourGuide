@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="MZV-R2-Rv0">
-                                <rect key="frame" x="52" y="223" width="312" height="31"/>
+                                <rect key="frame" x="52" y="223" width="304.5" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaV-7f-7aU">
-                                        <rect key="frame" x="0.0" y="0.0" width="242.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="236.5" height="31"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -28,11 +28,11 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="pickerRoll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vXK-s9-ESf"/>
+                                            <action selector="startingPointPickerRoller:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FuG-5Q-VAB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDt-eT-p3P">
-                                        <rect key="frame" x="242.5" y="0.0" width="69.5" height="31"/>
+                                        <rect key="frame" x="236.5" y="0.0" width="68" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="location.fill" catalog="system"/>
                                     </button>
@@ -40,10 +40,10 @@
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="PDT-Od-Rhe">
-                                <rect key="frame" x="52" y="325" width="312" height="31"/>
+                                <rect key="frame" x="52" y="325" width="304.5" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDc-oa-0ek">
-                                        <rect key="frame" x="0.0" y="0.0" width="312" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="304.5" height="31"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -57,24 +57,42 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQx-f8-PMc">
+                                <rect key="frame" x="146" y="523" width="114" height="39"/>
+                                <color key="backgroundColor" red="0.90620974229999995" green="0.98806586939999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="J8U-5l-Dbk"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Find Class">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="findClassButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oBc-qy-cf7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.6444908105807694" green="0.95176967460857054" blue="1" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" systemColor="tintColor"/>
                         <constraints>
+                            <constraint firstItem="HQx-f8-PMc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="146" id="4af-Ql-GKz"/>
                             <constraint firstItem="MZV-R2-Rv0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="52" id="4uP-CX-xQj"/>
                             <constraint firstItem="MZV-R2-Rv0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="87W-h6-qDU"/>
                             <constraint firstItem="PDT-Od-Rhe" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="Beg-fC-YuC"/>
                             <constraint firstItem="MZV-R2-Rv0" firstAttribute="trailing" secondItem="PDT-Od-Rhe" secondAttribute="trailing" id="MY1-rK-6gP"/>
                             <constraint firstItem="MZV-R2-Rv0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="X4k-sN-wRu"/>
+                            <constraint firstItem="HQx-f8-PMc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dZ2-8I-EmP"/>
                             <constraint firstItem="MZV-R2-Rv0" firstAttribute="leading" secondItem="PDT-Od-Rhe" secondAttribute="leading" id="fii-ou-khu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HQx-f8-PMc" secondAttribute="bottom" constant="300" id="ngy-mU-W03"/>
                             <constraint firstItem="MZV-R2-Rv0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="179" id="qy2-Cb-hct"/>
                             <constraint firstItem="PDT-Od-Rhe" firstAttribute="top" secondItem="MZV-R2-Rv0" secondAttribute="bottom" constant="71" id="zPL-eL-ogh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="destinationPickerView" destination="DDc-oa-0ek" id="PLc-Ud-C0A"/>
-                        <outlet property="startingPointPickerView" destination="KaV-7f-7aU" id="i8a-3f-6SN"/>
+                        <outlet property="startingPointPickerView" destination="KaV-7f-7aU" id="Ks2-s6-xm9"/>
                         <outlet property="userLocation" destination="LDt-eT-p3P" id="Exl-LQ-hNd"/>
                     </connections>
                 </viewController>

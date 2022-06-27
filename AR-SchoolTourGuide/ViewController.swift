@@ -17,19 +17,22 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var selectedRow = 0
     // number of locations
     var size = 11
-    // graph
-    var graph: [[Int]] = [ [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1 ], // 0
-                        [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1 ], // 1
-                        [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ], // 2
-                        [ 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1 ], // 3
-                        [ 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0 ], // 4
-                        [ 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0 ], // 5
-                        [ 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0 ], // 6
-                        [ 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0 ], // 7
-                        [ 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0 ], // 8
-                        [ 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1 ], // 9
-                        [ 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0 ], // 10
-
+    // 2D array containing the vertex and edges for each node
+    // row represents what vertex you are at
+    // column represents if you have with that vertex
+    // Example: first row means vertex 0 has an edge with vertex 9 and 10
+    var graph: [[Int]] = [ //0  1  2  3  4  5  6  7  8  9  10
+                           [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1 ], // vertex 0
+                           [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1 ], // vertex 1
+                           [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ], // vertex 2
+                           [ 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1 ], // vertex 3
+                           [ 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0 ], // vertex 4
+                           [ 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0 ], // vertex 5
+                           [ 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0 ], // vertex 6
+                           [ 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0 ], // vertex 7
+                           [ 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0 ], // vertex 8
+                           [ 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1 ], // vertex 9
+                           [ 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0 ], // vertex 10
                         ]
     
     
@@ -40,22 +43,51 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var userLocation: UIButton!
     // list of starting and destination points
     var locations: KeyValuePairs = [
+        "Admissions": String(),
+        "Burk Hall": String(),
         "Business": String(),
-        "Cesar Chavez Student Center": String(),
         "Creative Arts": String(),
+        "Cesar Chavez Student Center": String(),
+        "Fine Arts": String(),
         "Humanities": String(),
         "J. Paul Leonard Library": String()
     ]
     
+    var locationVertex = [
+                            "Admissions": 2,
+                            "Burk Hall": 5,
+                            "Business": 1,
+                            "Creative Arts": 7,
+                            "Cesar Chavez Student Center": 4,
+                            "Fine Arts": 6,
+                            "Humanities": 3,
+                            "J. Paul Leonard Library": 0
+                         ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        dijkstra(graph: graph, src: 0, size: size)
+        //dijkstra(graph: graph, src: 8, size: size)
+    }
+    
+    // findClassButton will get the starting and destination point in order to compute shortest path to class
+    @IBAction func findClassButton(_ sender: Any) {
+        // start and destination points in string form
+        var start = startingPointPickerView.titleLabel?.text
+        var dest = destinationPickerView.titleLabel?.text
+        // start and destination vertex
+        var startVertex = locationVertex[start!]!
+        var destinationVertex = locationVertex[dest!]
+        // make sure we have valid locations
+        if (start != "Select Starting Point" && dest != "Select Destination"){
+            dijkstra(graph: graph, src: startVertex, size: size)
+        } else {
+            print("missing value")
+        }
     }
     
 
-
-    @IBAction func pickerRoll(_ sender: Any) {
+    @IBAction func startingPointPickerRoller(_ sender: Any) {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
         let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
@@ -108,9 +140,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         self.present(alert, animated: true, completion: nil)
     }
-    
-
-    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

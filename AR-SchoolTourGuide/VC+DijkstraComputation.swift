@@ -28,7 +28,7 @@ extension ViewController{
     
     // print the shortest path
     func printPath(parent: [Int], j:Int){
-        // if parent == source, return
+        // if parent == -1, return since -1 represents source
         if (parent[j] == -1){
             return
         }
@@ -37,10 +37,10 @@ extension ViewController{
         print("\(j) ", terminator: " ")
     }
     
-    // print entire solution showing intial vertex, distance traveled, and path taken from source
+    // print entire solution showing intial vertex, distance traveled, and path taken from source vertex
     func printSolution(dist: [Int], parent:[Int], size: Int, src:Int){
         print("Vertex       Distance        Path")
-        for i in 1...size-1 {
+        for i in 0...size-1 {
             print()
             print("\(src) -> \(i)         \(dist[i])              \(src) ", terminator: " ")
             printPath(parent: parent, j: i)
@@ -50,6 +50,10 @@ extension ViewController{
     
 
     func dijkstra(graph: [[Int]], src: Int, size: Int){
+        // create our arrays
+        // distance: distance traveled from source to destination
+        // sptSet: true/false if vertex has been visited
+        // parent: path taken
         var distance = [Int](repeating: 1000, count:size)
         var sptSet = [Bool](repeating: false, count: size)
         var parent = [Int](repeating: 0, count: size)
@@ -77,7 +81,7 @@ extension ViewController{
                 }
             }
         }
-        
+    
         // print the constructed distance array
         printSolution(dist: distance, parent: parent, size: size, src: src)
     }
