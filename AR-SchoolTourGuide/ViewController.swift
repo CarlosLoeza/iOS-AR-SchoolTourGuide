@@ -53,7 +53,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         "J. Paul Leonard Library": String()
     ]
     
-    var locationVertex = [
+    var locationVertex : [String: Int] = [
                             "Admissions": 2,
                             "Burk Hall": 5,
                             "Business": 1,
@@ -73,14 +73,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     // findClassButton will get the starting and destination point in order to compute shortest path to class
     @IBAction func findClassButton(_ sender: Any) {
         // start and destination points in string form
-        var start = startingPointPickerView.titleLabel?.text
-        var dest = destinationPickerView.titleLabel?.text
+        let start = startingPointPickerView.titleLabel?.text
+        let dest = destinationPickerView.titleLabel?.text
         // start and destination vertex
-        var startVertex = locationVertex[start!]!
-        var destinationVertex = locationVertex[dest!]
+        let startVertex = locationVertex[start!]!
+        let destinationVertex = locationVertex[dest!]!
         // make sure we have valid locations
         if (start != "Select Starting Point" && dest != "Select Destination"){
-            dijkstra(graph: graph, src: startVertex, size: size)
+            dijkstra(graph: graph, src: startVertex, dest: destinationVertex, size: size)
         } else {
             print("missing value")
         }

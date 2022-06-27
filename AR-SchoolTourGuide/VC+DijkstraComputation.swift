@@ -7,6 +7,14 @@
 
 import GameplayKit
 
+extension Dictionary where Value: Equatable {
+    func allKeys(forValue val: Value) -> [Key] {
+        return self.filter { $1 == val }.map { $0.0 }
+    }
+}
+
+
+
 extension ViewController{
     // find index of vertex with the shortest distance
     func minDistance(dist: [Int], sptSet: [Bool], size: Int)-> Int {
@@ -38,18 +46,25 @@ extension ViewController{
     }
     
     // print entire solution showing intial vertex, distance traveled, and path taken from source vertex
-    func printSolution(dist: [Int], parent:[Int], size: Int, src:Int){
+    func printSolution(dist: [Int], parent:[Int], size: Int, src:Int, dest: Int){
         print("Vertex       Distance        Path")
-        for i in 0...size-1 {
-            print()
-            print("\(src) -> \(i)         \(dist[i])              \(src) ", terminator: " ")
-            printPath(parent: parent, j: i)
-        }
+//        var test1 = locationVertex.allKeys(forValue: src)
+//        print(test1)
+//        print("hello")
+        
+        print("\(src) -> \(dest)         \(dist[dest])              \(src) ", terminator: " ")
+        printPath(parent: parent, j: dest)
         print()
+        // prints out the path to each vertex from src
+        //        for i in 0...size-1 {
+        //            print()
+        //            print("\(src) -> \(i)         \(dist[i])              \(src) ", terminator: " ")
+        //            printPath(parent: parent, j: i)
+        //        }
     }
     
 
-    func dijkstra(graph: [[Int]], src: Int, size: Int){
+    func dijkstra(graph: [[Int]], src: Int, dest: Int, size: Int){
         // create our arrays
         // distance: distance traveled from source to destination
         // sptSet: true/false if vertex has been visited
@@ -83,7 +98,7 @@ extension ViewController{
         }
     
         // print the constructed distance array
-        printSolution(dist: distance, parent: parent, size: size, src: src)
+        printSolution(dist: distance, parent: parent, size: size, src: src, dest: dest)
     }
     
 }
