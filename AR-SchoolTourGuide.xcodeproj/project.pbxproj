@@ -16,6 +16,7 @@
 		071F01C12863A9D500340B6E /* AR_SchoolTourGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F01C02863A9D500340B6E /* AR_SchoolTourGuideTests.swift */; };
 		071F01CB2863A9D500340B6E /* AR_SchoolTourGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F01CA2863A9D500340B6E /* AR_SchoolTourGuideUITests.swift */; };
 		071F01CD2863A9D500340B6E /* AR_SchoolTourGuideUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F01CC2863A9D500340B6E /* AR_SchoolTourGuideUITestsLaunchTests.swift */; };
+		0733FE93286A131E00E4CC57 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733FE92286A131E00E4CC57 /* MapViewController.swift */; };
 		07484E392868C06300092473 /* VC+DijkstraComputation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07484E382868C06300092473 /* VC+DijkstraComputation.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		071F01C62863A9D500340B6E /* AR-SchoolTourGuideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR-SchoolTourGuideUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		071F01CA2863A9D500340B6E /* AR_SchoolTourGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_SchoolTourGuideUITests.swift; sourceTree = "<group>"; };
 		071F01CC2863A9D500340B6E /* AR_SchoolTourGuideUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_SchoolTourGuideUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0733FE92286A131E00E4CC57 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		07484E382868C06300092473 /* VC+DijkstraComputation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+DijkstraComputation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				071F01AB2863A9D100340B6E /* SceneDelegate.swift */,
 				071F01AD2863A9D100340B6E /* ViewController.swift */,
 				07484E382868C06300092473 /* VC+DijkstraComputation.swift */,
+				0733FE92286A131E00E4CC57 /* MapViewController.swift */,
 				071F01AF2863A9D100340B6E /* Main.storyboard */,
 				071F01B22863A9D400340B6E /* Assets.xcassets */,
 				071F01B42863A9D400340B6E /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 				071F01AE2863A9D100340B6E /* ViewController.swift in Sources */,
 				071F01AA2863A9D100340B6E /* AppDelegate.swift in Sources */,
 				07484E392868C06300092473 /* VC+DijkstraComputation.swift in Sources */,
+				0733FE93286A131E00E4CC57 /* MapViewController.swift in Sources */,
 				071F01AC2863A9D100340B6E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,7 +447,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PDRD89J8QK;
+				DEVELOPMENT_TEAM = C3353ZR648;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AR-SchoolTourGuide/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -451,16 +455,17 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "c.lo-.AR-SchoolTourGuide";
+				PRODUCT_BUNDLE_IDENTIFIER = "c.lo-.AR-SchoolTourGuide1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -471,7 +476,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PDRD89J8QK;
+				DEVELOPMENT_TEAM = C3353ZR648;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AR-SchoolTourGuide/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -479,16 +484,17 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "c.lo-.AR-SchoolTourGuide";
+				PRODUCT_BUNDLE_IDENTIFIER = "c.lo-.AR-SchoolTourGuide1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
