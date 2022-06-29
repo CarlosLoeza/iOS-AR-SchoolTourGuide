@@ -5,7 +5,6 @@
 //  Created by Carlos Loeza on 6/26/22.
 //
 
-import GameplayKit
 
 // helps us convert location vertex number to name
 extension Dictionary where Value: Equatable {
@@ -34,29 +33,37 @@ extension ViewController{
         return min_index
     }
     
+    
     // print the shortest path
-    func printPath(parent: [Int], j:Int){
-        // if parent == -1, return since -1 represents source
-        if (parent[j] == -1){
-            return
+    func getPathToDestination(parent: [Int], s: Int, d:Int)->[Int]{
+        var parentIndex: Int
+        var path: [Int] = []
+
+        // parentIndex contains what vertex is the parent
+        parentIndex = d
+
+        // loop until we reach source by the parent vertex
+        while (parent[parentIndex] != -1){
+            // append parent to path since it is a path to our destination
+            path.append(parent[parentIndex])
+            parentIndex = parent[parentIndex]
         }
-        // print path
-        printPath(parent: parent, j: parent[j])
-        print("\(j) ", terminator: " ")
+        // reverse will put our path in correct order from finish to start -> start to finish
+        path = path.reversed()
+        path.append(d)
+        // since our while loop stopped at our source, parent[parentIndex] != -1, it never got appended to path
+        return path
     }
+    
     
     // print entire solution showing intial vertex, distance traveled, and path taken from source vertex
     func printSolution(dist: [Int], parent:[Int], size: Int, src:Int, dest: Int){
+        var path: [Int] = []
+        
         print("Vertex       Distance        Path")
-        // location names instead of vertex number
-        var srcLocationName = locationVertex.allKeys(forValue: src)[0]
-        var destLocationName = locationVertex.allKeys(forValue: dest)[0]
-        
-        print("hello")
-        
-        //print("\(srcLocationName) -> \(destLocationName)         \(dist[dest])              \(srcLocationName) ", terminator: " ")
-        print("\(src) -> \(dest)         \(dist[dest])              \(src) ", terminator: " ")
-        printPath(parent: parent, j: dest)
+        print("\(src) -> \(dest)         \(dist[dest]) ", terminator: " ")
+        path = getPathToDestination(parent: parent, s: src, d: dest)
+        printPath(path: path)
         print()
         // prints out the path to each vertex from src
         //        for i in 0...size-1 {
@@ -66,7 +73,14 @@ extension ViewController{
         //        }
     }
     
+    
+    func printPath(path: [Int]){
+        for stop in path {
+            print("\(stop) ", terminator: " ")
+        }
+    }
 
+    
     // Perform dijkstra to find the shortest path from starting location
     // to destination.
     func dijkstra(graph: [[Int]], src: Int, dest: Int, size: Int){
@@ -94,8 +108,7 @@ extension ViewController{
                 // make sure sptSet[i] not visited, location not empty in our graph,
                 // distance is not INFINITY meaning distance has been calculated,
                 // make sure current path is smaller than existing distance[i]
-                if(!sptSet[i] && (graph[minVertex][i] != 0) && distance[minVertex] != 1000
-                   && distance[minVertex] + graph[minVertex][i] < distance[i]){
+                if(!sptSet[i] && (graph[minVertex][i] != 0) && distance[minVertex] != 1000 && distance[minVertex] + graph[minVertex][i] < distance[i]){
                     distance[i] = distance[minVertex] + graph[minVertex][i]
                     parent[i] = minVertex;
                 }
