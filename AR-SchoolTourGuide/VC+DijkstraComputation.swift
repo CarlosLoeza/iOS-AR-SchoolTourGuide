@@ -5,7 +5,6 @@
 //  Created by Carlos Loeza on 6/26/22.
 //
 
-import GameplayKit
 
 // helps us convert location vertex number to name
 extension Dictionary where Value: Equatable {
@@ -42,8 +41,6 @@ extension ViewController{
 
         // parentIndex contains what vertex is the parent
         parentIndex = d
-        print("testing outside d: \(parent[d])")
-        print("testing outside s: \(s)")
 
         // loop until we reach source by the parent vertex
         while (parent[parentIndex] != -1){
@@ -83,6 +80,7 @@ extension ViewController{
         }
     }
 
+    
     // Perform dijkstra to find the shortest path from starting location
     // to destination.
     func dijkstra(graph: [[Int]], src: Int, dest: Int, size: Int){

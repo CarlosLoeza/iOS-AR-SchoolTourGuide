@@ -72,16 +72,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     // Picker roller which allows user to select a starting location
     // and update text
     @IBAction func startingPointPickerRoller(_ sender: Any) {
-        let vc = UIViewController()
-        vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
+        let vc = setupVC()
         // create picker view by calling createPickerView()
-        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
-        pickerView.dataSource = self
-        pickerView.delegate = self
-        pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
-        vc.view.addSubview(pickerView)
-        pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
-        pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
+        let pickerView = setupPickerView(vc: vc)
         
         let alert = UIAlertController(title: "Select Starting Point", message: "", preferredStyle: .actionSheet)
         alert.setValue(vc, forKey: "contentViewController")
@@ -100,15 +93,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     // Picker roller which allows user to select a destination location
     // and update text.
     @IBAction func destinationPickerRoll(_ sender: Any) {
-        let vc = UIViewController()
-        vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
-        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
-        pickerView.dataSource = self
-        pickerView.delegate = self
-        pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
-        vc.view.addSubview(pickerView)
-        pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
-        pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
+        let vc = setupVC()
+        
+        let pickerView = setupPickerView(vc: vc)
         
         let alert = UIAlertController(title: "Select Destination", message: "", preferredStyle: .actionSheet)
         alert.setValue(vc, forKey: "contentViewController")
@@ -123,6 +110,30 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    // Setup UIViewController for startingPointPickerRoller() and destinationPickerRoll.
+    // vc will hold our picker roller
+    // Helps reduce code
+    func setupVC ()->UIViewController {
+        let vc = UIViewController()
+        vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
+        return vc
+    }
+    
+    // Setup our UIPickerView for startingPointPickerRoller() and destinationPickerRoll
+    // Create picker view
+    func setupPickerView(vc: UIViewController)->UIPickerView{
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
+        vc.view.addSubview(pickerView)
+        pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
+        pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
+        
+        return pickerView
+    }
+    
     
     // findClassButton will get the starting and destination point in order to compute shortest path
     @IBAction func findClassButton(_ sender: Any) {
@@ -141,7 +152,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let sender: [String: Any?] = ["name": "My name", "id": 10]
             // To go to the second view.
             self.performSegue(withIdentifier: "findClass", sender: sender)
-
         } else {
             print("missing value")
         }
