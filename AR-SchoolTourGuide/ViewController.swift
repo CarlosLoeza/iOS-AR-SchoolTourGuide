@@ -78,9 +78,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         let alert = UIAlertController(title: "Select Starting Point", message: "", preferredStyle: .actionSheet)
         alert.setValue(vc, forKey: "contentViewController")
-        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(UIAlertAction) in }))
-        
         alert.addAction(UIAlertAction(title: "Select", style: .default, handler: {(UIAlertAction) in
             self.selectedRow = pickerView.selectedRow(inComponent: 0)
             let selected = Array(self.locations)[self.selectedRow]
@@ -94,14 +92,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     // and update text.
     @IBAction func destinationPickerRoll(_ sender: Any) {
         let vc = setupVC()
-        
         let pickerView = setupPickerView(vc: vc)
         
         let alert = UIAlertController(title: "Select Destination", message: "", preferredStyle: .actionSheet)
         alert.setValue(vc, forKey: "contentViewController")
-        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(UIAlertAction) in }))
-        
         alert.addAction(UIAlertAction(title: "Select", style: .default, handler: {(UIAlertAction) in
             self.selectedRow = pickerView.selectedRow(inComponent: 0)
             let selected = Array(self.locations)[self.selectedRow]
@@ -145,14 +140,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let destinationVertex = locationVertex[dest!]!
         // make sure we have valid locations
         if (start != "Select Starting Point" && dest != "Select Destination"){
-            
-            
+            // time to compute dijkstra() without saved data: 0.0015159845352172852
             let start = Date()
             dijkstra(graph: graph, src: startVertex, dest: destinationVertex, size: size)
             let end = Date()
             let consumedTime = end.timeIntervalSince(start)
             print("----------")
-            print(consumedTime) // time to compute dijkstra() without saved data: 0.0015159845352172852
+            print(consumedTime)
             print("----------")
             // ** temporarily sends dummy data when we click Find Class button **
             // Dictionary data that I want to send to the second view.
