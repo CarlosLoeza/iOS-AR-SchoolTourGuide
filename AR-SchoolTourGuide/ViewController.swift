@@ -137,6 +137,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             dijkstra(graph: graph, src: startVertex, dest: destinationVertex, size: size)
             // ** temporarily sends dummy data when we click Find Class button and switch VC **
             //Dictionary data that I want to send to the second view.
+            print("hello")
             let sender: [String: Any?] = ["name": "My name", "id": 10]
             // To go to the second view.
             self.performSegue(withIdentifier: "findClass", sender: sender)

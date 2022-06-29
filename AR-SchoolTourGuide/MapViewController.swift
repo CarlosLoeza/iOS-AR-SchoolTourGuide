@@ -13,7 +13,7 @@ import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     // region used for our map
-    let mapRegionInMeters: Double = 1000
+    let mapRegionInMeters: Double = 500
     // Manages location actions
     private let locationManager = CLLocationManager()
     // user's location
@@ -77,11 +77,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
 extension MapViewController {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-       
+        // make sure we have a location, else return
+        guard let location = locations.last else {return}
+        // get center of location
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        //
+        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: mapRegionInMeters, longitudinalMeters: mapRegionInMeters)
+        //
+        mapView.setRegion(region, animated: true)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        
+        // if our location settings change
+        checkLocationServies()
     }
 }
 
