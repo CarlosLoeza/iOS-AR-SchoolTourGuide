@@ -11,18 +11,32 @@
         <!--Camera-->
         <scene sceneID="hdV-Zx-8XB">
             <objects>
-                <viewController id="TYQ-Uk-hx1" sceneMemberID="viewController">
+                <viewController id="TYQ-Uk-hx1" customClass="MapViewController" customModule="AR_SchoolTourGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="feL-bb-Muf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HD5-NX-jJ3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </arView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="QGc-SF-QBZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HD5-NX-jJ3" firstAttribute="leading" secondItem="QGc-SF-QBZ" secondAttribute="leading" id="01b-hV-iSp"/>
+                            <constraint firstItem="HD5-NX-jJ3" firstAttribute="top" secondItem="feL-bb-Muf" secondAttribute="topMargin" constant="-44" id="9AO-PC-Bh4"/>
+                            <constraint firstItem="HD5-NX-jJ3" firstAttribute="bottom" secondItem="QGc-SF-QBZ" secondAttribute="bottom" id="Qv5-ra-ZGY"/>
+                            <constraint firstItem="HD5-NX-jJ3" firstAttribute="centerX" secondItem="feL-bb-Muf" secondAttribute="centerX" id="uzB-tg-rf4"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" image="camera" catalog="system" id="qDC-ZA-xct"/>
+                    <connections>
+                        <outlet property="arView" destination="HD5-NX-jJ3" id="EQl-Af-bRa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPD-Sg-80g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2281" y="871"/>
+            <point key="canvasLocation" x="2279.7101449275365" y="870.53571428571422"/>
         </scene>
         <!--Map-->
         <scene sceneID="8FQ-JX-krN">
@@ -163,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128.98550724637681" y="83.705357142857139"/>
+            <point key="canvasLocation" x="416" y="84"/>
         </scene>
     </scenes>
     <resources>

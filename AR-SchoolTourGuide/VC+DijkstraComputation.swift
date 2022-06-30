@@ -61,7 +61,7 @@ extension ViewController{
         var path: [Int] = []
         
         print("Vertex       Distance        Path")
-        print("\(src) -> \(dest)         \(dist[dest]) ", terminator: " ")
+        print("\(src) -> \(dest)         \(dist[dest])             ", terminator: " ")
         path = getPathToDestination(parent: parent, s: src, d: dest)
         printPath(path: path)
         print()
@@ -83,7 +83,7 @@ extension ViewController{
     
     // Perform dijkstra to find the shortest path from starting location
     // to destination.
-    func dijkstra(graph: [[Int]], src: Int, dest: Int, size: Int){
+    func dijkstra(graph: [[Int]], src: Int, dest: Int, size: Int)->[Int]{
         // create our arrays
         // distance: distance traveled from source to destination
         // sptSet: true/false if vertex has been visited
@@ -114,9 +114,13 @@ extension ViewController{
                 }
             }
         }
-    
+        print("Vertex       Distance        Path")
+        print("\(src) -> \(dest)         \(distance[dest])             ", terminator: " ")
+        var path = getPathToDestination(parent: parent, s: src, d: dest)
+        printPath(path: path)
+        return path
         // print the constructed distance array
-        printSolution(dist: distance, parent: parent, size: size, src: src, dest: dest)
+        //printSolution(dist: distance, parent: parent, size: size, src: src, dest: dest)
     }
     
 }
