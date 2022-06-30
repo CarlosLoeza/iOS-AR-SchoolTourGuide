@@ -204,11 +204,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
-    
+    // prepare() allows us to path the path from source to destination to our MapViewController.
+    // MapViewController will place pins on map using path taken
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let mapVC = segue.destination as? MapViewController else { return }
-        mapVC.vertexPath = path
+        let barViewControllers = segue.destination as! UITabBarController
+        let destinationViewController = barViewControllers.viewControllers?[0] as! MapViewController
+        destinationViewController.vertexPath = path
     }
+
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

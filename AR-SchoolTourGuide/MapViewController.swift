@@ -57,7 +57,8 @@ extension Double {
 }
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, ARSessionDelegate {
-    var vertexPath: [Int]?
+    var vertexPath: [Int]!
+    var vertexCoordinates: [String: Double]!
     // region used for our map
     let mapRegionInMeters: Double = 500
     // Manages location actions
@@ -85,11 +86,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.delegate = self
         // If user clicks on the map shown on the bottom half
         mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapOnMapView(_:))))
-        //placeAnchorsOnMap(locations: annotationLocations)
+        //
+        var locations = getlocationCoordinates(locations: annotationLocations, vertexPath: vertexPath)
+        placeAnchorsOnMap(locations: locations)
         print("------------")
         print(vertexPath)
         print("------------")
 
+    }
+    
+    func getlocationCoordinates(locations: [[String: Double]], vertexPath: [Int])->[[String: Double]]{
+        var locationCoordinates: [[String: Double]] = [[:]]
+        
+        for vertex in vertexPath {
+            var value = locations[vertex]
+            print("value : \(value)")
+            locationCoordinates.append(value)
+        }
+        return locationCoordinates
     }
     
     
@@ -98,10 +112,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func placeAnchorsOnMap(locations: [[String : Double]]){
         // get all the locations
         for location in locations {
+            print("yes")
             let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: location["latitude"] as! CLLocationDegrees, longitude: location["longitude"] as! CLLocationDegrees)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: location["latitude"]!, longitude: location["longitude"]!)
             let truncated_latitude = annotation.coordinate.latitude.truncate(places: 2)
-            if (truncated_latitude != 37.72){
+            var test = 0.0 // 37.72
+            if (truncated_latitude != test){
                 // brute force to assign a title to each annotation.
                 // title determines the color of annotation. (see func mapView() below for reference)
                 annotation.title = "Friends"
