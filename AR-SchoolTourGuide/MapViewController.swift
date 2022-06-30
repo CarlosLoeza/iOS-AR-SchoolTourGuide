@@ -68,10 +68,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // mapView is the map shown in our app
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var arView: ARView!
-//     Geo anchors ordered by the time of their addition to the scene.
-//     geoAnchors is an array of type GeoAnchorWithAssociatedData
-    
-    var geoAnchors: [GeoAnchorWithData] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +99,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func placeAnchorsOnMap(locations: [[String : Double]], vertexPath: [Int]){
         // get all the locations
         for vertex in vertexPath {
-            print("yes")
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: locations[vertex]["latitude"]!, longitude: locations[vertex]["longitude"]!)
             let truncated_latitude = annotation.coordinate.latitude.truncate(places: 2)
@@ -131,11 +127,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Assign color to pin
         annotationView.markerTintColor = twitterBlue
         // Assign image to pin
-        annotationView.glyphImage = UIImage(systemName: "star.fill")
+        annotationView.glyphImage = UIImage(systemName: "figure.walk.circle.fill")
 
         return annotationView
     }
     
+    
+    //
+    func centerViewOfSchoolOnMap() {
+        let schoolLocation : CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.722160, -122.478092)
+        // convert user location of MKCoordinateRegion in order to place it on our map
+        let region = MKCoordinateRegion.init(center: schoolLocation, latitudinalMeters: mapRegionInMeters, longitudinalMeters: mapRegionInMeters)
+        // place center view on map
+        mapView.setRegion(region, animated: true)
+    }
     
     // center our map view around the user to make it easier for them to locate
     // themselves on the map
@@ -167,7 +172,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
             mapView.showsUserLocation = true
-            centerViewOfUserOnMap()
+            //centerViewOfUserOnMap() // center map around user
+            centerViewOfSchoolOnMap()
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
@@ -190,30 +196,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             return 0
         }
     }
-    
-    // MARK: - ARSessionDelegate
-    // THIS FUNCTION HELPS US ADD THE AR ANCHOR TO OUR AR WORLD AND MAP VIEW FOUND
-    // ON THE BOTTOM HALF
-    func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-        print("inside session")
-        // CYCLE THROUGH ALL OF OUR GEOANCHORS
-        for geoAnchor in anchors.compactMap({ $0 as? ARGeoAnchor }) {
-            // Effect a spatial-based delay to avoid blocking the main thread.
-            DispatchQueue.main.asyncAfter(deadline: .now() + (distanceFromDevice(geoAnchor.coordinate) / 10)) {
-                // Add an AR placemark visualization for the geo anchor.
-                // Entity.placemarkEntity(for: geoAnchor) -> returns AnchorEntity
-                
-                //self.arView.scene.addAnchor(Entity.placemarkEntity(for: geoAnchor))
-            }
-            // Add a visualization for the geo anchor in the map view.
-            let anchorIndicator = AnchorIndicator(center: geoAnchor.coordinate)
-            self.mapView.addOverlay(anchorIndicator)
 
-            // Remember the geo anchor we just added
-            let anchorInfo = GeoAnchorWithData(geoAnchor: geoAnchor, mapOverlay: anchorIndicator)
-            self.geoAnchors.append(anchorInfo)
-        }
-    }
     
 }
 
