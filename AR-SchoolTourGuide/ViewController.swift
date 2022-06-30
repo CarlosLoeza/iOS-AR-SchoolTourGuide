@@ -84,7 +84,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         "Humanities": String(),
         "J. Paul Leonard Library": String()
     ]
-    // ** LOOK INTO COMBINING locations[] and locationVertex[]
+    // ** LOOK INTO REMOVING/COMBINING locations[] and locationVertex[]
     // locationVertex is a dictionary which helps translate location name to vertex number.
     // Used for dijkstra algorithm to find shortest path.
     var locationVertex : [String: Int] = [
@@ -112,42 +112,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     // Picker roller which allows user to select a starting location
     // and update text
     @IBAction func startingPointPickerRoller(_ sender: Any) {
+        let title = "Select Starting Point"
+        let source = "start"
         let vc = setupVC()
         // create picker view by calling createPickerView()
         let pickerView = setupPickerView(vc: vc)
-        
-        let alert = UIAlertController(title: "Select Starting Point", message: "", preferredStyle: .actionSheet)
-        alert.setValue(vc, forKey: "contentViewController")
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(UIAlertAction) in }))
-        
-        alert.addAction(UIAlertAction(title: "Select", style: .default, handler: {(UIAlertAction) in
-            self.selectedRow = pickerView.selectedRow(inComponent: 0)
-            let selected = Array(self.locations)[self.selectedRow]
-            let starting = selected.key
-            self.startingPointPickerView.setTitle(starting, for: .normal)
-        }))
+        // setup alert
+        let alert = setupAlert(title: title, vc: vc, pickerView: pickerView, source: source)
         self.present(alert, animated: true, completion: nil)
     }
     
     // Picker roller which allows user to select a destination location
     // and update text.
     @IBAction func destinationPickerRoll(_ sender: Any) {
+        let title = "Select Destination"
+        let source = "destination"
         let vc = setupVC()
-        
         let pickerView = setupPickerView(vc: vc)
-        
-        let alert = UIAlertController(title: "Select Destination", message: "", preferredStyle: .actionSheet)
-        alert.setValue(vc, forKey: "contentViewController")
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(UIAlertAction) in }))
-        
-        alert.addAction(UIAlertAction(title: "Select", style: .default, handler: {(UIAlertAction) in
-            self.selectedRow = pickerView.selectedRow(inComponent: 0)
-            let selected = Array(self.locations)[self.selectedRow]
-            let destination = selected.key
-            self.destinationPickerView.setTitle(destination, for: .normal)
-        }))
+        // setup alert
+        let alert = setupAlert(title: title, vc: vc, pickerView: pickerView, source: source)
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -174,6 +157,24 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return pickerView
     }
     
+    func setupAlert(title: String, vc: UIViewController, pickerView: UIPickerView, source: String)->UIAlertController{
+        var alert = UIAlertController(title: title, message: "", preferredStyle: .actionSheet)
+        alert.setValue(vc, forKey: "contentViewController")
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(UIAlertAction) in }))
+        
+        alert.addAction(UIAlertAction(title: "Select", style: .default, handler: {(UIAlertAction) in
+            self.selectedRow = pickerView.selectedRow(inComponent: 0)
+            let selected = Array(self.locations)[self.selectedRow]
+            let starting = selected.key
+            if source == "start"{
+                self.startingPointPickerView.setTitle(starting, for: .normal)
+            } else {
+                self.destinationPickerView.setTitle(starting, for: .normal)
+            }
+        }))
+        return alert
+    }
     
     // findClassButton will get the starting and destination point in order to compute shortest path
     @IBAction func findClassButton(_ sender: Any) {
@@ -185,8 +186,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let destinationVertex = locationVertex[dest!]!
         // make sure we have valid locations
         if (start != "Select Starting Point" && dest != "Select Destination"){
-            
-            
             let start = Date()
             path = dijkstra(graph: updatedGraph, src: startVertex, dest: destinationVertex, size: size)
             let end = Date()

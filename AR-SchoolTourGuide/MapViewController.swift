@@ -12,7 +12,7 @@ import CoreLocation
 import ARKit
 
 
-var annotationLocations = [
+var locations = [
     ["latitude": 37.721500, "longitude": -122.476796], // 0
     ["latitude": 37.721540, "longitude": -122.476963], // 1
     ["latitude": 37.721614, "longitude": -122.477128], // 2
@@ -72,32 +72,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //     geoAnchors is an array of type GeoAnchorWithAssociatedData
     
     var geoAnchors: [GeoAnchorWithData] = []
-    //var test: CLLocationCoordinate2D
     
-    var test = CLLocationCoordinate2DMake(37.71837700863713, -122.39184451228083)
-    
-    
-    //-122.39184451228083
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServies()
         // Set this view controller as the MKMapView delegate.
         // This is what shows the map on the bottom half of the screen
         mapView.delegate = self
-        // If user clicks on the map shown on the bottom half
-        mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapOnMapView(_:))))
-        //
-        var locations = getlocationCoordinates(locations: annotationLocations, vertexPath: vertexPath)
-        placeAnchorsOnMap(locations: locations)
-        print("------------")
-        print(vertexPath)
-        print("------------")
+        mapView.mapType = MKMapType.satelliteFlyover
+        // placeAnchorsMap() will place path on map
+        placeAnchorsOnMap(locations: locations, vertexPath: vertexPath)
+
 
     }
     
     func getlocationCoordinates(locations: [[String: Double]], vertexPath: [Int])->[[String: Double]]{
         var locationCoordinates: [[String: Double]] = [[:]]
-        
         for vertex in vertexPath {
             var value = locations[vertex]
             print("value : \(value)")
@@ -109,19 +99,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     // placeAnchorsOnMap allows us to place a pin on our map.
     // Currently places red pins but I also want to add other colors
-    func placeAnchorsOnMap(locations: [[String : Double]]){
+    func placeAnchorsOnMap(locations: [[String : Double]], vertexPath: [Int]){
         // get all the locations
-        for location in locations {
+        for vertex in vertexPath {
             print("yes")
             let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: location["latitude"]!, longitude: location["longitude"]!)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: locations[vertex]["latitude"]!, longitude: locations[vertex]["longitude"]!)
             let truncated_latitude = annotation.coordinate.latitude.truncate(places: 2)
             var test = 0.0 // 37.72
+            // look into this if statement
             if (truncated_latitude != test){
                 // brute force to assign a title to each annotation.
                 // title determines the color of annotation. (see func mapView() below for reference)
-                annotation.title = "Friends"
-                
             }
             // Add pin to map
             mapView.addAnnotation(annotation)
@@ -137,53 +126,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         guard !(annotation is MKUserLocation) else { return nil }
         // create the balloon pin which shows the location of messages posted
         let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
-        // Pin colors:
-        // 1. Twitter blue
+        // Pin color:
         let twitterBlue = UIColor(red: 0/255.0, green: 172/255.0, blue: 238/255.0, alpha: 1.0)
-        // 2. Memoir green
-        let memoirGreen = UIColor(red: 130/255.0, green: 255/255.0, blue: 175/255.0, alpha: 1.0)
-        // 3. SF State purple
-        let sfStatePurple = UIColor(red: 70/255.0, green: 48/255.0, blue: 119/255.0, alpha: 1.0)
-        // 4. SF State yellow
-        let sfStateYellow = UIColor(red: 201/255.0, green: 151/255.0, blue: 0/255.0, alpha: 1.0)
-        // Check if message is for public view or only friends, and determine what color to assing it.
-        // Blue is public and green is friends only
-        switch annotation.title! {
-            case "Public":
-                // Color: Memoir green
-                annotationView.markerTintColor = memoirGreen
-                annotationView.glyphImage = UIImage(systemName: "person.3.fill")
-            case "Friends":
-                // Color: Twitter blue
-                annotationView.markerTintColor = twitterBlue
-                annotationView.glyphImage = UIImage(systemName: "star.fill")
-            case "Students":
-                // Color: SF State purple
-                annotationView.markerTintColor = sfStatePurple
-                annotationView.glyphImage = UIImage(systemName: "laptopcomputer")
-            case "Student&Friend":
-                // Color: SF State yellow
-                annotationView.markerTintColor = sfStateYellow
-                annotationView.glyphImage = UIImage(systemName: "star.fill")
-            default:
-                annotationView.markerTintColor = twitterBlue
-        }
+        // Assign color to pin
+        annotationView.markerTintColor = twitterBlue
+        // Assign image to pin
+        annotationView.glyphImage = UIImage(systemName: "star.fill")
+
         return annotationView
     }
-    
-    // Responds to a user tap on the map view.
-    @objc
-    func handleTapOnMapView(_ sender: UITapGestureRecognizer) {
-        let point = sender.location(in: mapView)
-        let location = mapView.convert(point, toCoordinateFrom: mapView)
-        print("handleTapOnMapView()")
-        //addGeoAnchor(at: location)
-        
-        // add blue dot to map
-        
-    
-    }
-    
     
     
     // center our map view around the user to make it easier for them to locate

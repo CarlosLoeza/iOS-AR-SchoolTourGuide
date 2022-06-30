@@ -57,7 +57,7 @@ extension ViewController{
     
     
     // print entire solution showing intial vertex, distance traveled, and path taken from source vertex
-    func printSolution(dist: [Int], parent:[Int], size: Int, src:Int, dest: Int){
+    func printSolution(path: [Int], dist: [Int], parent:[Int], size: Int, src:Int, dest: Int){
         var path: [Int] = []
         
         print("Vertex       Distance        Path")
@@ -65,12 +65,6 @@ extension ViewController{
         path = getPathToDestination(parent: parent, s: src, d: dest)
         printPath(path: path)
         print()
-        // prints out the path to each vertex from src
-        //        for i in 0...size-1 {
-        //            print()
-        //            print("\(src) -> \(i)         \(dist[i])              \(src) ", terminator: " ")
-        //            printPath(parent: parent, j: i)
-        //        }
     }
     
     
@@ -105,22 +99,23 @@ extension ViewController{
             
             // for loop to make sure we get the shortest distance to each vertex.
             for i in 0...size-1{
-                // make sure sptSet[i] not visited, location not empty in our graph,
-                // distance is not INFINITY meaning distance has been calculated,
+                // check if sptSet[i] not visited && location not empty in our graph &&
+                // distance is not INFINITY meaning the distance has been calculated &&
                 // make sure current path is smaller than existing distance[i]
                 if(!sptSet[i] && (graph[minVertex][i] != 0) && distance[minVertex] != 1000 && distance[minVertex] + graph[minVertex][i] < distance[i]){
+                    // if true, update distance[i] to new shortest distance
                     distance[i] = distance[minVertex] + graph[minVertex][i]
+                    // update parent[i] which represents a vertex on the path to our destination
                     parent[i] = minVertex;
                 }
             }
         }
-        print("Vertex       Distance        Path")
-        print("\(src) -> \(dest)         \(distance[dest])             ", terminator: " ")
-        var path = getPathToDestination(parent: parent, s: src, d: dest)
-        printPath(path: path)
+        
+        
+       
+        let path = getPathToDestination(parent: parent, s: src, d: dest)
+        printSolution(path: path, dist: distance, parent: parent, size: size, src: src, dest: dest)
         return path
-        // print the constructed distance array
-        //printSolution(dist: distance, parent: parent, size: size, src: src, dest: dest)
     }
     
 }
