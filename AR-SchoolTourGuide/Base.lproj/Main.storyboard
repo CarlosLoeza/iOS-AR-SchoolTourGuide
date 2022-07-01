@@ -11,7 +11,7 @@
         <!--Camera-->
         <scene sceneID="hdV-Zx-8XB">
             <objects>
-                <viewController id="TYQ-Uk-hx1" customClass="MapViewController" customModule="AR_SchoolTourGuide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TYQ-Uk-hx1" customClass="ARViewController" customModule="AR_SchoolTourGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="feL-bb-Muf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,7 +31,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" image="camera" catalog="system" id="qDC-ZA-xct"/>
                     <connections>
-                        <outlet property="arView" destination="HD5-NX-jJ3" id="EQl-Af-bRa"/>
+                        <outlet property="arView" destination="HD5-NX-jJ3" id="mAb-sW-KlW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPD-Sg-80g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
