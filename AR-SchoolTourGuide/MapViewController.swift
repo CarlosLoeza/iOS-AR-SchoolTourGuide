@@ -76,24 +76,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Set this view controller as the MKMapView delegate.
         // This is what shows the map on the bottom half of the screen
         mapView.delegate = self
+        // set map style to satellite flyover
         mapView.mapType = MKMapType.satelliteFlyover
         // placeAnchorsMap() will place path on map
         placeAnchorsOnMap(locations: locations, vertexPath: vertexPath)
-
-
     }
     
-    func getlocationCoordinates(locations: [[String: Double]], vertexPath: [Int])->[[String: Double]]{
-        var locationCoordinates: [[String: Double]] = [[:]]
-        for vertex in vertexPath {
-            var value = locations[vertex]
-            print("value : \(value)")
-            locationCoordinates.append(value)
-        }
-        return locationCoordinates
-    }
-    
-    
+
     // placeAnchorsOnMap allows us to place a pin on our map.
     // Currently places red pins but I also want to add other colors
     func placeAnchorsOnMap(locations: [[String : Double]], vertexPath: [Int]){
@@ -101,13 +90,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         for vertex in vertexPath {
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: locations[vertex]["latitude"]!, longitude: locations[vertex]["longitude"]!)
-            let truncated_latitude = annotation.coordinate.latitude.truncate(places: 2)
-            var test = 0.0 // 37.72
-            // look into this if statement
-            if (truncated_latitude != test){
-                // brute force to assign a title to each annotation.
-                // title determines the color of annotation. (see func mapView() below for reference)
-            }
             // Add pin to map
             mapView.addAnnotation(annotation)
         }

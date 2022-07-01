@@ -37,7 +37,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                            [ 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0 ], // vertex 10
                         ]
     
-    
+    // this will eventually replace graph[] above
     var updatedGraph: [[Int]] = [ //0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //0
                                    [1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //1
@@ -98,8 +98,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                             "J. Paul Leonard Library": 5
                          ]
     
-    // create a picker roller view so user can select a starting point from list
-    // picker roller
+    // create a picker roller view so user can select a starting point and destination from list
     @IBOutlet weak var startingPointPickerView: UIButton!
     @IBOutlet weak var destinationPickerView: UIButton!
     // user can use their current location
@@ -118,7 +117,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // create picker view by calling createPickerView()
         let pickerView = setupPickerView(vc: vc)
         // setup alert
-        let alert = setupAlert(title: title, vc: vc, pickerView: pickerView, source: source)
+        let alert = setupAlert(vc: vc, pickerView: pickerView, source: source)
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -130,21 +129,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let vc = setupVC()
         let pickerView = setupPickerView(vc: vc)
         // setup alert
-        let alert = setupAlert(title: title, vc: vc, pickerView: pickerView, source: source)
+        let alert = setupAlert(vc: vc, pickerView: pickerView, source: source)
         self.present(alert, animated: true, completion: nil)
     }
     
-    // Setup UIViewController for startingPointPickerRoller() and destinationPickerRoll.
-    // vc will hold our picker roller
-    // Helps reduce code
+    
+    /*  Setup UIViewController for startingPointPickerRoller() and destinationPickerRoll.
+        Return: UIViewController with correct size for our picker rollers
+    */
     func setupVC ()->UIViewController {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
         return vc
     }
     
-    // Setup our UIPickerView for startingPointPickerRoller() and destinationPickerRoll
-    // Create picker view
+    
+    /*  Setup our UIPickerView for startingPointPickerRoller() and destinationPickerRoll.
+        vc: UIViewController for our picker roller
+        Return: UIPickerView which contains "shell" of where our values will go. (Ex: name of locations)
+    */
     func setupPickerView(vc: UIViewController)->UIPickerView{
         let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
         pickerView.dataSource = self
@@ -157,35 +160,43 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return pickerView
     }
     
-    func setupAlert(title: String, vc: UIViewController, pickerView: UIPickerView, source: String)->UIAlertController{
+    
+    /*
+        setupAlert() will allow a user to select start and destination by setting up appearence of picker roller
+        title:
+    */
+    func setupAlert(vc: UIViewController, pickerView: UIPickerView, source: String)->UIAlertController{
         var alert = UIAlertController(title: title, message: "", preferredStyle: .actionSheet)
         alert.setValue(vc, forKey: "contentViewController")
-        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(UIAlertAction) in }))
-        
         alert.addAction(UIAlertAction(title: "Select", style: .default, handler: {(UIAlertAction) in
             self.selectedRow = pickerView.selectedRow(inComponent: 0)
             let selected = Array(self.locations)[self.selectedRow]
-            let starting = selected.key
+            let selectedLocation = selected.key
+            // source determines if we are setting title for starting or destination picker roller
             if source == "start"{
-                self.startingPointPickerView.setTitle(starting, for: .normal)
+                self.startingPointPickerView.setTitle(selectedLocation, for: .normal)
             } else {
-                self.destinationPickerView.setTitle(starting, for: .normal)
+                self.destinationPickerView.setTitle(selectedLocation, for: .normal)
             }
         }))
+        // once we finish setting it up, return alert
         return alert
     }
+    
     
     // findClassButton will get the starting and destination point in order to compute shortest path
     @IBAction func findClassButton(_ sender: Any) {
         // start and destination points in string form
         let start = startingPointPickerView.titleLabel?.text
         let dest = destinationPickerView.titleLabel?.text
-        // start and destination vertex
-        let startVertex = locationVertex[start!]!
-        let destinationVertex = locationVertex[dest!]!
         // make sure we have valid locations
         if (start != "Select Starting Point" && dest != "Select Destination"){
+            // start and destination vertex
+            //
+            let startVertex = locationVertex[start!]!
+            let destinationVertex = locationVertex[dest!]!
+            // timer to see how long algorithm takes
             let start = Date()
             path = dijkstra(graph: updatedGraph, src: startVertex, dest: destinationVertex, size: size)
             let end = Date()
@@ -203,6 +214,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
+    
     // prepare() allows us to path the path from source to destination to our MapViewController.
     // MapViewController will place pins on map using path taken
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -212,14 +224,22 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
 
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let picker = textField.inputView as? UIPickerView {
+            picker.selectRow(0, inComponent: 0, animated: false)
+        }
+    }
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         locations.count
     }
+    
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
@@ -227,6 +247,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         label.sizeToFit()
         return label
     }
+    
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 60

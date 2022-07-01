@@ -50,8 +50,8 @@ extension ViewController{
         }
         // reverse will put our path in correct order from finish to start -> start to finish
         path = path.reversed()
-        path.append(d)
         // since our while loop stopped at our source, parent[parentIndex] != -1, it never got appended to path
+        path.append(d)
         return path
     }
     
