@@ -9,9 +9,14 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of 7db2a75 (Merge branch 'Development' into feature-AR-coaching-overlay)
 
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
