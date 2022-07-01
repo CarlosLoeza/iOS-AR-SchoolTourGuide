@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07184203286C1D310093C6E8 /* MapVC+MapPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07184202286C1D310093C6E8 /* MapVC+MapPath.swift */; };
+		07184204286C1D310093C6E8 /* MapVC+MapPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07184202286C1D310093C6E8 /* MapVC+MapPath.swift */; };
+		07184205286C1D310093C6E8 /* MapVC+MapPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07184202286C1D310093C6E8 /* MapVC+MapPath.swift */; };
 		071F01AA2863A9D100340B6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F01A92863A9D100340B6E /* AppDelegate.swift */; };
 		071F01AC2863A9D100340B6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F01AB2863A9D100340B6E /* SceneDelegate.swift */; };
 		071F01AE2863A9D100340B6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F01AD2863A9D100340B6E /* ViewController.swift */; };
@@ -16,7 +19,6 @@
 		071F01C12863A9D500340B6E /* AR_SchoolTourGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F01C02863A9D500340B6E /* AR_SchoolTourGuideTests.swift */; };
 		071F01CB2863A9D500340B6E /* AR_SchoolTourGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F01CA2863A9D500340B6E /* AR_SchoolTourGuideUITests.swift */; };
 		071F01CD2863A9D500340B6E /* AR_SchoolTourGuideUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F01CC2863A9D500340B6E /* AR_SchoolTourGuideUITestsLaunchTests.swift */; };
-
 		0733FE93286A131E00E4CC57 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733FE92286A131E00E4CC57 /* MapViewController.swift */; };
 		07484E392868C06300092473 /* VC+DijkstraComputation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07484E382868C06300092473 /* VC+DijkstraComputation.swift */; };
 		074CB4F9286F7376004DC0DD /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CB4F8286F7376004DC0DD /* ARViewController.swift */; };
@@ -25,7 +27,6 @@
 		076A4F3A286CF29D006A0E8C /* GeoAnchorWithData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A4F38286CF29D006A0E8C /* GeoAnchorWithData.swift */; };
 		076A4F3C286CF3A7006A0E8C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A4F3B286CF3A7006A0E8C /* Utilities.swift */; };
 		076A4F3D286CF3A7006A0E8C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A4F3B286CF3A7006A0E8C /* Utilities.swift */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07184202286C1D310093C6E8 /* MapVC+MapPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapVC+MapPath.swift"; sourceTree = "<group>"; };
 		071F01A62863A9D100340B6E /* AR-SchoolTourGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR-SchoolTourGuide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		071F01A92863A9D100340B6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		071F01AB2863A9D100340B6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +67,6 @@
 		074CB4FA286F73E1004DC0DD /* ARVC+CoachingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARVC+CoachingOverlay.swift"; sourceTree = "<group>"; };
 		076A4F38286CF29D006A0E8C /* GeoAnchorWithData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoAnchorWithData.swift; sourceTree = "<group>"; };
 		076A4F3B286CF3A7006A0E8C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,7 +301,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				071F01C12863A9D500340B6E /* AR_SchoolTourGuideTests.swift in Sources */,
-
 				076A4F3A286CF29D006A0E8C /* GeoAnchorWithData.swift in Sources */,
 				076A4F3D286CF3A7006A0E8C /* Utilities.swift in Sources */,
 				07184204286C1D310093C6E8 /* MapVC+MapPath.swift in Sources */,
@@ -311,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07184205286C1D310093C6E8 /* MapVC+MapPath.swift in Sources */,
 				071F01CD2863A9D500340B6E /* AR_SchoolTourGuideUITestsLaunchTests.swift in Sources */,
 				071F01CB2863A9D500340B6E /* AR_SchoolTourGuideUITests.swift in Sources */,
 			);
@@ -474,7 +475,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PDRD89J8QK;
+				DEVELOPMENT_TEAM = C3353ZR648;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AR-SchoolTourGuide/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -482,16 +483,17 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "c.lo-.AR-SchoolTourGuide";
+				PRODUCT_BUNDLE_IDENTIFIER = "c.lo-.AR-SchoolTourGuide1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -502,7 +504,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PDRD89J8QK;
+				DEVELOPMENT_TEAM = C3353ZR648;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AR-SchoolTourGuide/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -510,16 +512,17 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "c.lo-.AR-SchoolTourGuide";
+				PRODUCT_BUNDLE_IDENTIFIER = "c.lo-.AR-SchoolTourGuide1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -532,7 +535,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PDRD89J8QK;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "c.lo-.AR-SchoolTourGuideTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -552,7 +555,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PDRD89J8QK;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "c.lo-.AR-SchoolTourGuideTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
