@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+
         <!--Camera-->
         <scene sceneID="hdV-Zx-8XB">
             <objects>
@@ -104,109 +103,20 @@
             </objects>
             <point key="canvasLocation" x="1759" y="84"/>
         </scene>
+
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AR_SchoolTourGuide" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="MZV-R2-Rv0">
-                                <rect key="frame" x="52" y="223" width="268.5" height="31"/>
-                                <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaV-7f-7aU">
-                                        <rect key="frame" x="0.0" y="0.0" width="208.5" height="31"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Select Starting Point">
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="startingPointPickerRoller:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FuG-5Q-VAB"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDt-eT-p3P">
-                                        <rect key="frame" x="208.5" y="0.0" width="60" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="location.fill" catalog="system"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="PDT-Od-Rhe">
-                                <rect key="frame" x="52" y="325" width="268.5" height="31"/>
-                                <subviews>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDc-oa-0ek">
-                                        <rect key="frame" x="0.0" y="0.0" width="268.5" height="31"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Select Destination">
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="destinationPickerRoll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aiT-dn-Pnr"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQx-f8-PMc">
-                                <rect key="frame" x="119" y="516" width="114" height="39"/>
-                                <color key="backgroundColor" red="0.90620974229999995" green="0.98806586939999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="J8U-5l-Dbk"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Find Class">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="findClassButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="La9-ft-wJ6"/>
-                                    <segue destination="5Gg-A0-h7W" kind="presentation" identifier="findClass" modalPresentationStyle="fullScreen" id="l61-3R-dcV"/>
-                                </connections>
-                            </button>
-                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor"/>
-                        <constraints>
-                            <constraint firstItem="HQx-f8-PMc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="119" id="4af-Ql-GKz"/>
-                            <constraint firstItem="MZV-R2-Rv0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="52" id="4uP-CX-xQj"/>
-                            <constraint firstItem="MZV-R2-Rv0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="87W-h6-qDU"/>
-                            <constraint firstItem="PDT-Od-Rhe" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="Beg-fC-YuC"/>
-                            <constraint firstItem="MZV-R2-Rv0" firstAttribute="trailing" secondItem="PDT-Od-Rhe" secondAttribute="trailing" id="MY1-rK-6gP"/>
-                            <constraint firstItem="MZV-R2-Rv0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="X4k-sN-wRu"/>
-                            <constraint firstItem="HQx-f8-PMc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-3" id="dZ2-8I-EmP"/>
-                            <constraint firstItem="MZV-R2-Rv0" firstAttribute="leading" secondItem="PDT-Od-Rhe" secondAttribute="leading" id="fii-ou-khu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HQx-f8-PMc" secondAttribute="bottom" constant="307" id="ngy-mU-W03"/>
-                            <constraint firstItem="MZV-R2-Rv0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="179" id="qy2-Cb-hct"/>
-                            <constraint firstItem="PDT-Od-Rhe" firstAttribute="top" secondItem="MZV-R2-Rv0" secondAttribute="bottom" constant="71" id="zPL-eL-ogh"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xOr-MS-xfP"/>
-                    <connections>
-                        <outlet property="destinationPickerView" destination="DDc-oa-0ek" id="PLc-Ud-C0A"/>
-                        <outlet property="startingPointPickerView" destination="KaV-7f-7aU" id="Ks2-s6-xm9"/>
-                        <outlet property="userLocation" destination="LDt-eT-p3P" id="Exl-LQ-hNd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="415.94202898550731" y="83.705357142857139"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="camera" catalog="system" width="128" height="94"/>
-        <image name="location.fill" catalog="system" width="128" height="121"/>
-        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>
