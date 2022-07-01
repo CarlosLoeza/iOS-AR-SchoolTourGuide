@@ -26,7 +26,6 @@ class AR_SchoolTourGuideTests: XCTestCase {
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
 
-
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
