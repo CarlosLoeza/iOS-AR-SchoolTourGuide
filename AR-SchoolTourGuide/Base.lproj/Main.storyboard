@@ -6,6 +6,104 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+
+        <!--Camera-->
+        <scene sceneID="hdV-Zx-8XB">
+            <objects>
+                <viewController id="TYQ-Uk-hx1" customClass="ARViewController" customModule="AR_SchoolTourGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="feL-bb-Muf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HD5-NX-jJ3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </arView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QGc-SF-QBZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HD5-NX-jJ3" firstAttribute="leading" secondItem="QGc-SF-QBZ" secondAttribute="leading" id="01b-hV-iSp"/>
+                            <constraint firstItem="HD5-NX-jJ3" firstAttribute="top" secondItem="feL-bb-Muf" secondAttribute="topMargin" constant="-44" id="9AO-PC-Bh4"/>
+                            <constraint firstItem="HD5-NX-jJ3" firstAttribute="bottom" secondItem="QGc-SF-QBZ" secondAttribute="bottom" id="Qv5-ra-ZGY"/>
+                            <constraint firstItem="HD5-NX-jJ3" firstAttribute="centerX" secondItem="feL-bb-Muf" secondAttribute="centerX" id="uzB-tg-rf4"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Camera" image="camera" catalog="system" id="qDC-ZA-xct"/>
+                    <connections>
+                        <outlet property="arView" destination="HD5-NX-jJ3" id="mAb-sW-KlW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPD-Sg-80g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2279.7101449275365" y="870.53571428571422"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="8FQ-JX-krN">
+            <objects>
+                <viewController id="N6n-Zm-7fP" customClass="MapViewController" customModule="AR_SchoolTourGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tlF-hA-yPp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s9t-qA-QzM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ra3-8f-S2Q">
+                                <rect key="frame" x="20" y="671" width="118" height="38"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thY-Ok-ALN">
+                                <rect key="frame" x="20" y="751" width="374" height="38"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="New Search"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="55p-kx-B8v"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2b8-zr-gb6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="s9t-qA-QzM" firstAttribute="top" secondItem="tlF-hA-yPp" secondAttribute="topMargin" constant="-44" id="J1H-bq-EQp"/>
+                            <constraint firstItem="2b8-zr-gb6" firstAttribute="trailing" secondItem="thY-Ok-ALN" secondAttribute="trailing" constant="20" id="QWY-4R-oUc"/>
+                            <constraint firstItem="s9t-qA-QzM" firstAttribute="bottom" secondItem="2b8-zr-gb6" secondAttribute="bottom" id="cF6-V2-zzH"/>
+                            <constraint firstItem="s9t-qA-QzM" firstAttribute="centerX" secondItem="tlF-hA-yPp" secondAttribute="centerX" id="cGr-LL-SOC"/>
+                            <constraint firstItem="s9t-qA-QzM" firstAttribute="leading" secondItem="2b8-zr-gb6" secondAttribute="leading" id="jrx-3m-V7E"/>
+                            <constraint firstItem="2b8-zr-gb6" firstAttribute="bottom" secondItem="thY-Ok-ALN" secondAttribute="bottom" constant="24" id="mZP-s4-1MD"/>
+                            <constraint firstItem="thY-Ok-ALN" firstAttribute="top" secondItem="ra3-8f-S2Q" secondAttribute="bottom" constant="42" id="oLD-7L-6q9"/>
+                            <constraint firstItem="thY-Ok-ALN" firstAttribute="leading" secondItem="2b8-zr-gb6" secondAttribute="leading" constant="20" id="wBm-VK-1VS"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="mappin.and.ellipse" catalog="system" id="Bol-08-DEl"/>
+                    <connections>
+                        <outlet property="mapView" destination="s9t-qA-QzM" id="w25-gz-Kjh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JEc-Pg-dx3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1205.7971014492755" y="870.53571428571422"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="0sM-TN-eEW">
+            <objects>
+                <tabBarController id="5Gg-A0-h7W" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MKJ-eC-vvP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="N6n-Zm-7fP" kind="relationship" relationship="viewControllers" id="26X-Ra-qgq"/>
+                        <segue destination="TYQ-Uk-hx1" kind="relationship" relationship="viewControllers" id="RGt-o3-fJi"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Dm-H5-Z0d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1759" y="84"/>
+        </scene>
+
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
