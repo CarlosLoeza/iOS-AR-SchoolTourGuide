@@ -63,15 +63,10 @@ extension ViewController{
         print("Vertex       Distance        Path")
         print("\(src) -> \(dest)         \(dist[dest])             ", terminator: " ")
         path = getPathToDestination(parent: parent, s: src, d: dest)
-        printPath(path: path)
-        print()
-    }
-    
-    
-    func printPath(path: [Int]){
         for stop in path {
             print("\(stop) ", terminator: " ")
         }
+        print()
     }
 
     

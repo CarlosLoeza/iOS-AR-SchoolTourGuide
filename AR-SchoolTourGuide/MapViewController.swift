@@ -7,9 +7,7 @@
 
 import UIKit
 import MapKit
-import RealityKit
 import CoreLocation
-import ARKit
 
 // locations: coordinate of our paths, type CLLocationCoordinate2D
 var locations = [
@@ -56,10 +54,10 @@ extension Double {
     }
 }
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, ARSessionDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     // vertexPath contains the path from start to destination
     var vertexPath: [Int]!
-    // our unit of measurement in map
+    // our unit of measurement in our map
     let mapRegionInMeters: Double = 500
     // Manages location actions
     private let locationManager = CLLocationManager()
@@ -126,6 +124,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.setRegion(region, animated: true)
     }
     
+    
     // centerViewOfUserOnMap() focuses our map at SF State
     func centerViewOfUserOnMap() {
         // if we can get user's location
@@ -137,10 +136,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    
     func setupLocationManager (){
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
+    
     
     func checkLocationServies () {
         if CLLocationManager.locationServicesEnabled(){
@@ -150,6 +151,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             print("Location error in func checkLocationStatus()")
         }
     }
+    
     
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
@@ -179,8 +181,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             return 0
         }
     }
-
-    
 }
 
 
