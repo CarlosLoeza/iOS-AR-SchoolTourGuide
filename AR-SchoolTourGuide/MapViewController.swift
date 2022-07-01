@@ -11,7 +11,7 @@ import RealityKit
 import CoreLocation
 import ARKit
 
-
+// locations: coordinate of our paths, type CLLocationCoordinate2D
 var locations = [
     ["latitude": 37.721500, "longitude": -122.476796], // 0
     ["latitude": 37.721540, "longitude": -122.476963], // 1
@@ -57,9 +57,9 @@ extension Double {
 }
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, ARSessionDelegate {
+    // vertexPath contains the path from start to destination
     var vertexPath: [Int]!
-    var vertexCoordinates: [String: Double]!
-    // region used for our map
+    // our unit of measurement in map
     let mapRegionInMeters: Double = 500
     // Manages location actions
     private let locationManager = CLLocationManager()
@@ -67,9 +67,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     private var currentCoordinates: CLLocationCoordinate2D?
     // mapView is the map shown in our app
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var arView: ARView!
 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServies()
@@ -83,8 +82,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
 
-    // placeAnchorsOnMap allows us to place a pin on our map.
-    // Currently places red pins but I also want to add other colors
+    /*
+        placeAnchorsOnMap() allows us to place a pin on our map.
+        locations: array of our locations in latitude, longitude
+        vertexPath: array containing path from start to finish
+    */
     func placeAnchorsOnMap(locations: [[String : Double]], vertexPath: [Int]){
         // get all the locations
         for vertex in vertexPath {
@@ -115,7 +117,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     
-    //
+    // centerViewOfSchoolOnMap() focuses our map at SF State
     func centerViewOfSchoolOnMap() {
         let schoolLocation : CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.722160, -122.478092)
         // convert user location of MKCoordinateRegion in order to place it on our map
@@ -124,8 +126,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.setRegion(region, animated: true)
     }
     
-    // center our map view around the user to make it easier for them to locate
-    // themselves on the map
+    // centerViewOfUserOnMap() focuses our map at SF State
     func centerViewOfUserOnMap() {
         // if we can get user's location
         if let location = locationManager.location?.coordinate {

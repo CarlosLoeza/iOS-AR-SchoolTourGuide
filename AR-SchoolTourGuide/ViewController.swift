@@ -163,7 +163,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     /*
         setupAlert() will allow a user to select start and destination by setting up appearence of picker roller
-        title:
+        vc: holds the picker roller
+        pickerView: builds our picker roller to accept start location and destination
     */
     func setupAlert(vc: UIViewController, pickerView: UIPickerView, source: String)->UIAlertController{
         var alert = UIAlertController(title: title, message: "", preferredStyle: .actionSheet)
