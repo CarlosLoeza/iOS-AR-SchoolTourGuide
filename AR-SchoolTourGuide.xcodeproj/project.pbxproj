@@ -117,16 +117,9 @@
 		071F01A82863A9D100340B6E /* AR-SchoolTourGuide */ = {
 			isa = PBXGroup;
 			children = (
-				074CB4F8286F7376004DC0DD /* ARViewController.swift */,
-				074CB4FA286F73E1004DC0DD /* ARVC+CoachingOverlay.swift */,
-				071F01AD2863A9D100340B6E /* ViewController.swift */,
-				07484E382868C06300092473 /* VC+DijkstraComputation.swift */,
-				0733FE92286A131E00E4CC57 /* MapViewController.swift */,
-				07184202286C1D310093C6E8 /* MapVC+MapPath.swift */,
-				076A4F38286CF29D006A0E8C /* GeoAnchorWithData.swift */,
-				076A4F3B286CF3A7006A0E8C /* Utilities.swift */,
 				071F01A92863A9D100340B6E /* AppDelegate.swift */,
 				071F01AB2863A9D100340B6E /* SceneDelegate.swift */,
+				071F01AD2863A9D100340B6E /* ViewController.swift */,
 				071F01AF2863A9D100340B6E /* Main.storyboard */,
 				071F01B22863A9D400340B6E /* Assets.xcassets */,
 				071F01B42863A9D400340B6E /* LaunchScreen.storyboard */,
@@ -285,13 +278,6 @@
 			files = (
 				071F01AE2863A9D100340B6E /* ViewController.swift in Sources */,
 				071F01AA2863A9D100340B6E /* AppDelegate.swift in Sources */,
-				07484E392868C06300092473 /* VC+DijkstraComputation.swift in Sources */,
-				074CB4F9286F7376004DC0DD /* ARViewController.swift in Sources */,
-				074CB4FB286F73E1004DC0DD /* ARVC+CoachingOverlay.swift in Sources */,
-				07184203286C1D310093C6E8 /* MapVC+MapPath.swift in Sources */,
-				0733FE93286A131E00E4CC57 /* MapViewController.swift in Sources */,
-				076A4F3C286CF3A7006A0E8C /* Utilities.swift in Sources */,
-				076A4F39286CF29D006A0E8C /* GeoAnchorWithData.swift in Sources */,
 				071F01AC2863A9D100340B6E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
