@@ -14,5 +14,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build App
-      run: xcodebuild -project "AR-SchoolTourGuide.xcodeproj" -scheme "AR" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
+      run: xcodebuild -project "AR-SchoolTourGuide.xcodeproj" -scheme AR-SchoolTourGuide -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
 
