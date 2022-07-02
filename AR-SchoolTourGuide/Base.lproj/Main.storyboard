@@ -59,6 +59,11 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="New Search"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="55p-kx-B8v"/>
                                 </connections>
@@ -112,6 +117,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ng-qH-kmc">
+                                <rect key="frame" x="112" y="0.0" width="302" height="36"/>
+                                <color key="backgroundColor" red="0.2609418631" green="0.25716069339999997" blue="0.52447050809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="302" id="9dP-XS-Dqh"/>
+                                    <constraint firstAttribute="height" constant="36" id="XVB-Nm-5pL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k69-zp-EUc">
+                                <rect key="frame" x="0.0" y="0.0" width="108" height="57"/>
+                                <color key="backgroundColor" red="0.15451488268443933" green="0.11843327217549157" blue="0.45142081348298602" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="EhC-sJ-J0U"/>
+                                    <constraint firstAttribute="width" constant="108" id="Kgc-RN-eIV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SFSU-logo" translatesAutoresizingMaskIntoConstraints="NO" id="bvp-W1-hf2">
                                 <rect key="frame" x="0.0" y="33" width="414" height="128"/>
                             </imageView>
@@ -194,9 +221,10 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.17044851890000001" green="0.019606194890000001" blue="0.54213863009999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MZV-R2-Rv0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="267" id="1i1-pb-R8z"/>
+                            <constraint firstItem="k69-zp-EUc" firstAttribute="leading" secondItem="bvp-W1-hf2" secondAttribute="leading" id="5R4-sT-rql"/>
                             <constraint firstItem="3pa-Jc-cu3" firstAttribute="top" secondItem="bvp-W1-hf2" secondAttribute="bottom" id="7BW-AB-Lnx"/>
                             <constraint firstItem="HQx-f8-PMc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="522" id="BIB-gC-SQS"/>
                             <constraint firstItem="bvp-W1-hf2" firstAttribute="leading" secondItem="3pa-Jc-cu3" secondAttribute="leading" id="BXD-sh-d4l"/>
@@ -205,11 +233,15 @@
                             <constraint firstItem="PDT-Od-Rhe" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.85" id="MUp-8c-O91"/>
                             <constraint firstItem="MZV-R2-Rv0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Nqg-GC-R33"/>
                             <constraint firstItem="HQx-f8-PMc" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.35" constant="-12.899999999999977" id="OaU-4p-Ac3"/>
+                            <constraint firstItem="k69-zp-EUc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="XIZ-x4-Xu8"/>
                             <constraint firstItem="HQx-f8-PMc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XRH-f1-JPk"/>
+                            <constraint firstItem="7Ng-qH-kmc" firstAttribute="firstBaseline" secondItem="k69-zp-EUc" secondAttribute="firstBaseline" id="Zeg-5t-X3I"/>
                             <constraint firstItem="MZV-R2-Rv0" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.85" id="b37-BX-X1d"/>
                             <constraint firstItem="3pa-Jc-cu3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="chb-E1-Khd"/>
+                            <constraint firstItem="k69-zp-EUc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-44" id="kUQ-7z-RBg"/>
                             <constraint firstAttribute="bottomMargin" secondItem="3pa-Jc-cu3" secondAttribute="bottom" constant="-34" id="nag-3s-z7A"/>
                             <constraint firstItem="bvp-W1-hf2" firstAttribute="trailing" secondItem="3pa-Jc-cu3" secondAttribute="trailing" id="rz1-Vd-RKf"/>
+                            <constraint firstItem="7Ng-qH-kmc" firstAttribute="trailing" secondItem="bvp-W1-hf2" secondAttribute="trailing" id="sld-X5-JQF"/>
                             <constraint firstItem="PDT-Od-Rhe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="362" id="wfN-Od-Aty"/>
                             <constraint firstItem="3pa-Jc-cu3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="117" id="ykZ-8A-acG"/>
                         </constraints>
