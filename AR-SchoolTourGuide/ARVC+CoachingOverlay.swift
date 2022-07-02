@@ -10,11 +10,6 @@ import ARKit
 
 
 extension ARViewController: ARCoachingOverlayViewDelegate {
-    
-
-    func coachingOverlayViewDidRequestSessionReset(_ coachingOverlayView: ARCoachingOverlayView) {
-        //restartSession()
-    }
 
     // Sets up the coaching view.
     func setupCoachingOverlay() {
@@ -32,7 +27,6 @@ extension ARViewController: ARCoachingOverlayViewDelegate {
             coachingOverlay.heightAnchor.constraint(equalTo: arView.heightAnchor)
             ])
     }
-    
     // Call this function to display AR coaching overlay
     // AR coaching overlay is the visual example which shows the user how to get an acceptable surface
     func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
@@ -47,7 +41,7 @@ extension ARViewController: ARCoachingOverlayViewDelegate {
         // Do not ignore error message since our coaching overlay is done
         // Allow user to interact with screen
         // Ex: create, delete, or drag message
-        self.placeExistingMessages()
+        placeExistingMessages(locations: locations, vertexPath: vertexPath)
         view.isUserInteractionEnabled = true
     }
     

@@ -53,7 +53,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //11
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //12
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //13
-                                   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //14
+                                   [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //14
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //15
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //16
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //17
@@ -106,6 +106,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     // Picker roller which allows user to select a starting location
@@ -117,7 +118,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // create picker view by calling createPickerView()
         let pickerView = setupPickerView(vc: vc)
         // setup alert
-        let alert = setupAlert(vc: vc, pickerView: pickerView, source: source)
+        let alert = setupAlert(title: title, vc: vc, pickerView: pickerView, source: source)
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -129,7 +130,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let vc = setupVC()
         let pickerView = setupPickerView(vc: vc)
         // setup alert
-        let alert = setupAlert(vc: vc, pickerView: pickerView, source: source)
+        let alert = setupAlert(title: title, vc: vc, pickerView: pickerView, source: source)
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -166,8 +167,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         vc: holds the picker roller
         pickerView: builds our picker roller to accept start location and destination
     */
-    func setupAlert(vc: UIViewController, pickerView: UIPickerView, source: String)->UIAlertController{
-        var alert = UIAlertController(title: title, message: "", preferredStyle: .actionSheet)
+    func setupAlert(title: String, vc: UIViewController, pickerView: UIPickerView, source: String)->UIAlertController{
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .actionSheet)
         alert.setValue(vc, forKey: "contentViewController")
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(UIAlertAction) in }))
         alert.addAction(UIAlertAction(title: "Select", style: .default, handler: {(UIAlertAction) in

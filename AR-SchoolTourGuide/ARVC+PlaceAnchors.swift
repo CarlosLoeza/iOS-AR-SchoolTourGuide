@@ -17,6 +17,10 @@ extension ARViewController {
             let loc = CLLocationCoordinate2D(latitude: locations[vertex]["latitude"]!, longitude: locations[vertex]["longitude"]!)
             self.addGeoLocationToAnchor(at: loc)
         }
+        var test = CLLocationCoordinate2DMake(37.702764, -122.467491)
+        addGeoLocationToAnchor(at: test)
+        test = CLLocationCoordinate2DMake(37.702691, -122.467533)
+        addGeoLocationToAnchor(at: test)
     }
     
     // addGeoLocation creates an ARGeoAnchor to assign it a location
@@ -72,7 +76,7 @@ extension ARViewController {
     }
     
     var isGeoTrackingLocalized: Bool {
-        if let status = self.ARView.session.currentFrame?.geoTrackingStatus, status.state == .localized {
+        if let status = self.arView.session.currentFrame?.geoTrackingStatus, status.state == .localized {
             return true
         }
         return false

@@ -28,6 +28,7 @@
 		076A4F3C286CF3A7006A0E8C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A4F3B286CF3A7006A0E8C /* Utilities.swift */; };
 		076A4F3D286CF3A7006A0E8C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A4F3B286CF3A7006A0E8C /* Utilities.swift */; };
 		07BF2F51286F930C00350EF2 /* ARVC+PlaceAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2F50286F930C00350EF2 /* ARVC+PlaceAnchors.swift */; };
+		07BF2F53286F9B1700350EF2 /* pin.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 07BF2F52286F9B1700350EF2 /* pin.rcproject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		076A4F38286CF29D006A0E8C /* GeoAnchorWithData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoAnchorWithData.swift; sourceTree = "<group>"; };
 		076A4F3B286CF3A7006A0E8C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		07BF2F50286F930C00350EF2 /* ARVC+PlaceAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARVC+PlaceAnchors.swift"; sourceTree = "<group>"; };
+		07BF2F52286F9B1700350EF2 /* pin.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = pin.rcproject; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				071F01B22863A9D400340B6E /* Assets.xcassets */,
 				071F01B42863A9D400340B6E /* LaunchScreen.storyboard */,
 				071F01B72863A9D400340B6E /* Info.plist */,
+				07BF2F52286F9B1700350EF2 /* pin.rcproject */,
 			);
 			path = "AR-SchoolTourGuide";
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				07484E392868C06300092473 /* VC+DijkstraComputation.swift in Sources */,
 				074CB4F9286F7376004DC0DD /* ARViewController.swift in Sources */,
 				074CB4FB286F73E1004DC0DD /* ARVC+CoachingOverlay.swift in Sources */,
+				07BF2F53286F9B1700350EF2 /* pin.rcproject in Sources */,
 				07184203286C1D310093C6E8 /* MapVC+MapPath.swift in Sources */,
 				0733FE93286A131E00E4CC57 /* MapViewController.swift in Sources */,
 				076A4F3C286CF3A7006A0E8C /* Utilities.swift in Sources */,
