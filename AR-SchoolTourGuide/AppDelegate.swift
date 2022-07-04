@@ -8,7 +8,7 @@
 import UIKit
 import ARKit
 
-@main
+ @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

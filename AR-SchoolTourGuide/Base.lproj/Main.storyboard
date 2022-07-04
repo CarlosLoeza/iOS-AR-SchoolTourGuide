@@ -82,7 +82,7 @@
                             <constraint firstItem="thY-Ok-ALN" firstAttribute="leading" secondItem="2b8-zr-gb6" secondAttribute="leading" constant="20" id="wBm-VK-1VS"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="mappin.and.ellipse" catalog="system" id="Bol-08-DEl"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="building.2.crop.circle.fill" catalog="system" id="Bol-08-DEl"/>
                     <connections>
                         <outlet property="mapView" destination="s9t-qA-QzM" id="w25-gz-Kjh"/>
                     </connections>
@@ -139,8 +139,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SFSU-library" translatesAutoresizingMaskIntoConstraints="NO" id="3pa-Jc-cu3">
-                                <rect key="frame" x="0.0" y="169" width="414" height="727"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SFSU-library" translatesAutoresizingMaskIntoConstraints="NO" id="3pa-Jc-cu3">
+                                <rect key="frame" x="0.0" y="169" width="414" height="721"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="Oii-Wz-8VE"/>
                                 </constraints>
@@ -305,8 +305,8 @@
     <resources>
         <image name="SFSU-library" width="500" height="500"/>
         <image name="SFSU-logo" width="219.5" height="57.5"/>
+        <image name="building.2.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="camera" catalog="system" width="128" height="94"/>
-        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

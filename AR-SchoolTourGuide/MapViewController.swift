@@ -87,29 +87,62 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     */
     func placeAnchorsOnMap(locations: [[String : Double]], vertexPath: [Int]){
         // get all the locations
-        for vertex in vertexPath {
+        for i in 0...vertexPath.count-1 {
+            var vertex = vertexPath[i]
             let annotation = MKPointAnnotation()
+           
+            if i == 0 {
+                annotation.title = "Start"
+            } else if i == vertexPath.count-1 {
+                annotation.title = "Destination"
+            } else {
+                annotation.title = ""
+            }
+            
             annotation.coordinate = CLLocationCoordinate2D(latitude: locations[vertex]["latitude"]!, longitude: locations[vertex]["longitude"]!)
+            
             // Add pin to map
             mapView.addAnnotation(annotation)
         }
     }
     
     
-    // Create pin and assign it a color
+    // Create pin and assign it a color and image
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // SF State purple
+        let sfStatePurple = UIColor(red: 70/255.0, green: 48/255.0, blue: 119/255.0, alpha: 1.0)
+        // SF State yellow
+        let sfStateYellow = UIColor(red: 201/255.0, green: 151/255.0, blue: 0/255.0, alpha: 1.0)
         // if annotation location == user's location, do not assign it a colored pin.
         // We want to keept the user's location appearance as a blue dot.
         // Ex: blue dot on Apple Maps showing your location
         guard !(annotation is MKUserLocation) else { return nil }
         // create the balloon pin which shows the location of messages posted
         let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
-        // Pin color:
-        let twitterBlue = UIColor(red: 0/255.0, green: 172/255.0, blue: 238/255.0, alpha: 1.0)
-        // Assign color to pin
-        annotationView.markerTintColor = twitterBlue
-        // Assign image to pin
-        annotationView.glyphImage = UIImage(systemName: "figure.walk.circle.fill")
+        
+        print("title: \(annotation.title!)")
+        
+        // Check if message is for public view or only friends, and determine what color to assing it.
+        // Blue is public and green is friends only
+        switch annotation.title! {
+            case "Start":
+                // Color: Memoir green
+                annotationView.markerTintColor = sfStatePurple
+                annotationView.glyphImage = UIImage(systemName: "building.2.crop.circle.fill")
+            case "Destination":
+                // Color: Twitter blue
+                annotationView.markerTintColor = sfStatePurple
+                annotationView.glyphImage = UIImage(systemName: "building.2.crop.circle.fill")
+            default:
+                annotationView.markerTintColor = sfStateYellow
+                annotationView.glyphImage = UIImage(systemName: "figure.walk.circle.fill")
+        }
+//        // Pin color:
+//        let twitterBlue = UIColor(red: 0/255.0, green: 172/255.0, blue: 238/255.0, alpha: 1.0)
+//        // Assign color to pin
+//        annotationView.markerTintColor = twitterBlue
+//        // Assign image to pin
+//        annotationView.glyphImage = UIImage(systemName: "figure.walk.circle.fill")
 
         return annotationView
     }
