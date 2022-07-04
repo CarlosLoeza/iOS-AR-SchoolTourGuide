@@ -23,6 +23,7 @@
 		07484E392868C06300092473 /* VC+DijkstraComputation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07484E382868C06300092473 /* VC+DijkstraComputation.swift */; };
 		074CB4F9286F7376004DC0DD /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CB4F8286F7376004DC0DD /* ARViewController.swift */; };
 		074CB4FB286F73E1004DC0DD /* ARVC+CoachingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CB4FA286F73E1004DC0DD /* ARVC+CoachingOverlay.swift */; };
+		0752F7862870F4C800A5AB13 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0752F7852870F4C800A5AB13 /* ValidationService.swift */; };
 		076A4F39286CF29D006A0E8C /* GeoAnchorWithData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A4F38286CF29D006A0E8C /* GeoAnchorWithData.swift */; };
 		076A4F3A286CF29D006A0E8C /* GeoAnchorWithData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A4F38286CF29D006A0E8C /* GeoAnchorWithData.swift */; };
 		076A4F3C286CF3A7006A0E8C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A4F3B286CF3A7006A0E8C /* Utilities.swift */; };
@@ -65,6 +66,7 @@
 		07484E382868C06300092473 /* VC+DijkstraComputation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+DijkstraComputation.swift"; sourceTree = "<group>"; };
 		074CB4F8286F7376004DC0DD /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		074CB4FA286F73E1004DC0DD /* ARVC+CoachingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARVC+CoachingOverlay.swift"; sourceTree = "<group>"; };
+		0752F7852870F4C800A5AB13 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		076A4F38286CF29D006A0E8C /* GeoAnchorWithData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoAnchorWithData.swift; sourceTree = "<group>"; };
 		076A4F3B286CF3A7006A0E8C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 				074CB4F8286F7376004DC0DD /* ARViewController.swift */,
 				074CB4FA286F73E1004DC0DD /* ARVC+CoachingOverlay.swift */,
 				071F01AD2863A9D100340B6E /* ViewController.swift */,
+				0752F7852870F4C800A5AB13 /* ValidationService.swift */,
 				07484E382868C06300092473 /* VC+DijkstraComputation.swift */,
 				0733FE92286A131E00E4CC57 /* MapViewController.swift */,
 				07184202286C1D310093C6E8 /* MapVC+MapPath.swift */,
@@ -290,6 +293,7 @@
 				074CB4FB286F73E1004DC0DD /* ARVC+CoachingOverlay.swift in Sources */,
 				07184203286C1D310093C6E8 /* MapVC+MapPath.swift in Sources */,
 				0733FE93286A131E00E4CC57 /* MapViewController.swift in Sources */,
+				0752F7862870F4C800A5AB13 /* ValidationService.swift in Sources */,
 				076A4F3C286CF3A7006A0E8C /* Utilities.swift in Sources */,
 				076A4F39286CF29D006A0E8C /* GeoAnchorWithData.swift in Sources */,
 				071F01AC2863A9D100340B6E /* SceneDelegate.swift in Sources */,

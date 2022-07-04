@@ -98,6 +98,20 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                             "J. Paul Leonard Library": 5
                          ]
     
+    private let validation: ValidationService
+    
+    // init validation tests
+    init(validation: ValidationService){
+        self.validation = validation
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder){
+        self.validation = ValidationService()
+        super.init(coder:coder)
+    }
+    
+    
     // create a picker roller view so user can select a starting point and destination from list
     @IBOutlet weak var startingPointPickerView: UIButton!
     @IBOutlet weak var destinationPickerView: UIButton!
@@ -188,31 +202,33 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // findClassButton will get the starting and destination point in order to compute shortest path
     @IBAction func findClassButton(_ sender: Any) {
+        
         // start and destination points in string form
-        let start = startingPointPickerView.titleLabel?.text
-        let dest = destinationPickerView.titleLabel?.text
-        // make sure we have valid locations
-        if (start != "Select Starting Point" && dest != "Select Destination"){
-            // start and destination vertex
-            //
-            let startVertex = locationVertex[start!]!
-            let destinationVertex = locationVertex[dest!]!
-            // timer to see how long algorithm takes
-            let start = Date()
-            path = dijkstra(graph: updatedGraph, src: startVertex, dest: destinationVertex, size: size)
-            let end = Date()
-            let consumedTime = end.timeIntervalSince(start)
-            print("----------")
-            print(consumedTime) // time to compute dijkstra() without saved data: 0.0015159845352172852
-            print("----------")
-            // ** temporarily sends dummy data when we click Find Class button **
-            // Dictionary data that I want to send to the second view.
-            let sender = path!
-            // To go to the second view.
-            self.performSegue(withIdentifier: "findClass", sender: sender)
-        } else {
-            print("missing value")
-        }
+         let start = startingPointPickerView.titleLabel?.text
+         let dest = destinationPickerView.titleLabel?.text
+        
+         // make sure we have valid locations
+         if (start != "Select Starting Point" && dest != "Select Destination"){
+             // start and destination vertex
+             //
+             let startVertex = locationVertex[start!]!
+             let destinationVertex = locationVertex[dest!]!
+             // timer to see how long algorithm takes
+             let start = Date()
+             path = dijkstra(graph: updatedGraph, src: startVertex, dest: destinationVertex, size: size)
+             let end = Date()
+             let consumedTime = end.timeIntervalSince(start)
+             print("----------")
+             print(consumedTime) // time to compute dijkstra() without saved data: 0.0015159845352172852
+             print("----------")
+             // ** temporarily sends dummy data when we click Find Class button **
+             // Dictionary data that I want to send to the second view.
+             let sender = path!
+             // To go to the second view.
+             self.performSegue(withIdentifier: "findClass", sender: sender)
+         } else {
+             print("missing value")
+         }
     }
     
     
