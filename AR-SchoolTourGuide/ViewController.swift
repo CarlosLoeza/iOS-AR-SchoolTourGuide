@@ -221,8 +221,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     // MapViewController will place pins on map using path taken
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let barViewControllers = segue.destination as! UITabBarController
-        let destinationViewController = barViewControllers.viewControllers?[0] as! MapViewController
-        destinationViewController.vertexPath = path
+        // send vertex path to our MapViewController in order to place pins on map
+        let destinationMapViewController = barViewControllers.viewControllers?[0] as! MapViewController
+        destinationMapViewController.vertexPath = path
+        // send vertex path to our ARViewController in order to place pins on AR view
+        let destinationARViewController = barViewControllers.viewControllers?[1] as! ARViewController
+        destinationARViewController.vertexPath = path
     }
 
     

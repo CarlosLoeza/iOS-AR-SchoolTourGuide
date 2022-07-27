@@ -50,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		07184202286C1D310093C6E8 /* MapVC+MapPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapVC+MapPath.swift"; sourceTree = "<group>"; };
+		071B20842891CC5300C79B08 /* AR_House.mov */ = {isa = PBXFileReference; lastKnownFileType = file; name = AR_House.mov; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/AR_House.mov"; sourceTree = "<group>"; };
 		071F01A62863A9D100340B6E /* AR-SchoolTourGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR-SchoolTourGuide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		071F01A92863A9D100340B6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		071F01AB2863A9D100340B6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +70,8 @@
 		074CB4FA286F73E1004DC0DD /* ARVC+CoachingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARVC+CoachingOverlay.swift"; sourceTree = "<group>"; };
 		076A4F38286CF29D006A0E8C /* GeoAnchorWithData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoAnchorWithData.swift; sourceTree = "<group>"; };
 		076A4F3B286CF3A7006A0E8C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		07A5DD9F2891CE550043B3D2 /* AR_Session_Vertical.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = AR_Session_Vertical.mov; sourceTree = "<group>"; };
+		07A5DDA02891CE550043B3D2 /* AR_Session_Vertical.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = AR_Session_Vertical.mov; path = ../../../Downloads/AR_Session_Vertical.mov; sourceTree = "<group>"; };
 		07BF2F50286F930C00350EF2 /* ARVC+PlaceAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARVC+PlaceAnchors.swift"; sourceTree = "<group>"; };
 		07BF2F52286F9B1700350EF2 /* pin.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = pin.rcproject; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +104,9 @@
 		071F019D2863A9D100340B6E = {
 			isa = PBXGroup;
 			children = (
+				07A5DD9F2891CE550043B3D2 /* AR_Session_Vertical.mov */,
+				07A5DDA02891CE550043B3D2 /* AR_Session_Vertical.mov */,
+				071B20842891CC5300C79B08 /* AR_House.mov */,
 				071F01A82863A9D100340B6E /* AR-SchoolTourGuide */,
 				071F01BF2863A9D500340B6E /* AR-SchoolTourGuideTests */,
 				071F01C92863A9D500340B6E /* AR-SchoolTourGuideUITests */,

@@ -11,16 +11,29 @@ import RealityKit
 
 extension ARViewController {
     
-    func placeExistingMessages(locations: [[String : Double]], vertexPath: [Int]) {
+    func placeExistingMessages(locations_: [[String : Double]], vertexPath: [Int]) {
         // get all the locations
-        for vertex in vertexPath {
+        for i in 0...vertexPath.count-1 {
+            var vertex = vertexPath[i]
             let loc = CLLocationCoordinate2D(latitude: locations[vertex]["latitude"]!, longitude: locations[vertex]["longitude"]!)
             self.addGeoLocationToAnchor(at: loc)
         }
-        var test = CLLocationCoordinate2DMake(37.702764, -122.467491)
-        addGeoLocationToAnchor(at: test)
-        test = CLLocationCoordinate2DMake(37.702691, -122.467533)
-        addGeoLocationToAnchor(at: test)
+
+        var test1 = CLLocationCoordinate2DMake(37.702811,  -122.467506)
+        addGeoLocationToAnchor(at: test1)
+        
+        
+        test1 = CLLocationCoordinate2DMake(37.702861, -122.467506)
+        addGeoLocationToAnchor(at: test1)
+        
+        
+        test1 = CLLocationCoordinate2DMake(37.702926, -122.467509)
+        addGeoLocationToAnchor(at: test1)
+        
+        
+        test1 = CLLocationCoordinate2DMake(37.702994, -122.467509)
+        addGeoLocationToAnchor(at: test1)
+        
     }
     
     // addGeoLocation creates an ARGeoAnchor to assign it a location

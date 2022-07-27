@@ -41,7 +41,7 @@ extension ARViewController: ARCoachingOverlayViewDelegate {
         // Do not ignore error message since our coaching overlay is done
         // Allow user to interact with screen
         // Ex: create, delete, or drag message
-        placeExistingMessages(locations: locations, vertexPath: vertexPath)
+        placeExistingMessages(locations_: locations, vertexPath: vertexPath)
         view.isUserInteractionEnabled = true
     }
     
