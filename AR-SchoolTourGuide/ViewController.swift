@@ -73,8 +73,46 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0], //31
                                 ]
     
+    
+    // locations: coordinate of our paths, type CLLocationCoordinate2D
+    var locations = [
+        ["latitude": 37.721500, "longitude": -122.476796], // 0
+        ["latitude": 37.721540, "longitude": -122.476963], // 1
+        ["latitude": 37.721614, "longitude": -122.477128], // 2
+        ["latitude": 37.721517, "longitude": -122.477228], //3
+        ["latitude": 37.721606, "longitude": -122.477456], //4
+        ["latitude": 37.721662, "longitude": -122.477724], //5
+        ["latitude": 37.721695, "longitude": -122.477275], //6
+        ["latitude": 37.721751, "longitude": -122.477425], //7
+        ["latitude": 37.721785, "longitude": -122.477626], //8
+        ["latitude": 37.721812, "longitude": -122.477962], //9
+        ["latitude": 37.721941, "longitude": -122.477988], //10
+        ["latitude": 37.722142, "longitude": -122.478017], //11
+        ["latitude": 37.722147, "longitude": -122.478211], //12
+        ["latitude": 37.722159, "longitude": -122.478459], //13
+        ["latitude": 37.721810, "longitude": -122.478289], //14
+        ["latitude": 37.721805, "longitude": -122.478608], //15
+        ["latitude": 37.721768, "longitude": -122.479000], //16
+        ["latitude": 37.721807, "longitude": -122.479179], //17
+        ["latitude": 37.721754, "longitude": -122.479203], //18
+        ["latitude": 37.721797, "longitude": -122.479372], //19
+        ["latitude": 37.721920, "longitude": -122.478940], //20
+        ["latitude": 37.721964, "longitude": -122.479100], //21
+        ["latitude": 37.722024, "longitude": -122.478895], //22
+        ["latitude": 37.722123, "longitude": -122.479024], //23
+        ["latitude": 37.722220, "longitude": -122.479157], //24
+        ["latitude": 37.722314, "longitude": -122.479107], //25
+        ["latitude": 37.722421, "longitude": -122.479055], //26
+        ["latitude": 37.722527, "longitude": -122.478991], //27
+        ["latitude": 37.722558, "longitude": -122.479136], //28
+        ["latitude": 37.722558, "longitude": -122.479307], //29
+        ["latitude": 37.722717, "longitude": -122.479372], //30
+        ["latitude": 37.722847, "longitude": -122.479420], //31
+
+    ]
+    
     // list of starting and destination points
-    var locations: KeyValuePairs = [
+    var locationNames: KeyValuePairs = [
         "Admissions": String(),
         "Burk Hall": String(),
         "Business": String(),
@@ -173,7 +211,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(UIAlertAction) in }))
         alert.addAction(UIAlertAction(title: "Select", style: .default, handler: {(UIAlertAction) in
             self.selectedRow = pickerView.selectedRow(inComponent: 0)
-            let selected = Array(self.locations)[self.selectedRow]
+            let selected = Array(self.locationNames)[self.selectedRow]
             let selectedLocation = selected.key
             // source determines if we are setting title for starting or destination picker roller
             if source == "start"{
@@ -224,9 +262,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // send vertex path to our MapViewController in order to place pins on map
         let destinationMapViewController = barViewControllers.viewControllers?[0] as! MapViewController
         destinationMapViewController.vertexPath = path
+        destinationMapViewController.locations = locations
         // send vertex path to our ARViewController in order to place pins on AR view
         let destinationARViewController = barViewControllers.viewControllers?[1] as! ARViewController
         destinationARViewController.vertexPath = path
+        destinationARViewController.locations = locations
     }
 
     
@@ -243,13 +283,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        locations.count
+        locationNames.count
     }
     
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
-        label.text = Array(locations)[row].key
+        label.text = Array(locationNames)[row].key
         label.sizeToFit()
         return label
     }
