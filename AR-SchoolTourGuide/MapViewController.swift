@@ -7,7 +7,7 @@
 
 import UIKit
 import MapKit
-import CoreLocation
+
 
 
 
@@ -104,12 +104,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 annotationView.markerTintColor = sfStateYellow
                 annotationView.glyphImage = UIImage(systemName: "figure.walk.circle.fill")
         }
-//        // Pin color:
-//        let twitterBlue = UIColor(red: 0/255.0, green: 172/255.0, blue: 238/255.0, alpha: 1.0)
-//        // Assign color to pin
-//        annotationView.markerTintColor = twitterBlue
-//        // Assign image to pin
-//        annotationView.glyphImage = UIImage(systemName: "figure.walk.circle.fill")
 
         return annotationView
     }
